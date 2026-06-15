@@ -1,0 +1,89 @@
+{
+  "global": {
+    "confirm": {
+      "title": "Confirmation",
+      "description": "Are you sure you want to perform this action?",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "actions": {
+      "close": "Close"
+    }
+  },
+  "shared": {
+    "ui": {
+      "datepicker": {
+        "placeholder": "Select the date"
+      },
+      "columns_toggle": {
+        "column_1": "1 column",
+        "column_2": "2 columns",
+        "column_3": "3 columns",
+        "column_4": "4 columns"
+      }
+    },
+    "global": {
+      "expand": {
+        "collapse": "Collapse",
+        "title": "Expand"
+      }
+    }
+  },
+  "ui": {
+    "mimeTypes": {
+      "image": "Image",
+      "video": "Video",
+      "audio": "Audio",
+      "document": "Document",
+      "application": "Application",
+      "text": "Text",
+      "unknown": "Unknown"
+    },
+    "button": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "close": "Close"
+    },
+    "input": {
+      "placeholder": "Enter text...",
+      "search": "Search...",
+      "file": {
+        "placeholder": "Select file...",
+        "uploading": "Uploading...",
+        "current_image": "Current image",
+        "upload": "Upload",
+        "drop_zone_text": "Drag and drop file here or click to select",
+        "paste_hint": "Or paste image from clipboard (Ctrl+V)",
+        "supported_images": "Images supported",
+        "type_prefix": "Type:",
+        "size_unit": "MB",
+        "errors": {
+          "invalid_type": "Invalid file type. Expected: {accept}",
+          "too_large": "File too large. Maximum size: {maxSize} {unit}",
+          "drop_no_data": "Could not get a file from drag and drop",
+          "url_not_image": "The URL does not point to an image",
+          "url_fetch_failed": "Could not load image from the link",
+          "not_selected": "No file selected",
+          "upload_failed": "File upload failed",
+          "upload_success": "File uploaded successfully",
+          "pasted_from_clipboard": "Image pasted from clipboard",
+          "uploading": "Uploading..."
+        }
+      },
+      "link": {
+        "trimmed_to_url": "Extra text was removed; only the link was kept"
+      }
+    },
+    "calendar": {
+      "next": "Next",
+      "previous": "Previous",
+      "today": "Today",
+      "view": {
+        "day": "Day",
+        "month": "Month",
+        "week": "Week",
+        "year": "Year"
+      }
+    }
+  }
+}

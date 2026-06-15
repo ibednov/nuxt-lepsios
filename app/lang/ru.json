@@ -1,0 +1,89 @@
+{
+  "global": {
+    "confirm": {
+      "title": "Подтверждение",
+      "description": "Вы уверены, что хотите выполнить это действие?",
+      "confirm": "Подтвердить",
+      "cancel": "Отмена"
+    },
+    "actions": {
+      "close": "Закрыть"
+    }
+  },
+  "shared": {
+    "ui": {
+      "datepicker": {
+        "placeholder": "Выберите дату"
+      },
+      "columns_toggle": {
+        "column_1": "1 колонка",
+        "column_2": "2 колонки",
+        "column_3": "3 колонки",
+        "column_4": "4 колонки"
+      }
+    },
+    "global": {
+      "expand": {
+        "title": "Развернуть",
+        "collapse": "Свернуть"
+      }
+    }
+  },
+  "ui": {
+    "mimeTypes": {
+      "image": "Изображение",
+      "video": "Видео",
+      "audio": "Аудио",
+      "document": "Документ",
+      "application": "Приложение",
+      "text": "Текст",
+      "unknown": "Неизвестно"
+    },
+    "button": {
+      "submit": "Отправить",
+      "cancel": "Отмена",
+      "close": "Закрыть"
+    },
+    "input": {
+      "placeholder": "Введите текст...",
+      "search": "Поиск...",
+      "file": {
+        "placeholder": "Выберите файл...",
+        "uploading": "Загрузка...",
+        "current_image": "Текущее изображение",
+        "upload": "Загрузить",
+        "drop_zone_text": "Перетащите файл сюда или нажмите для выбора",
+        "paste_hint": "Или вставьте изображение из буфера обмена (Ctrl+V)",
+        "supported_images": "Поддерживаются изображения",
+        "type_prefix": "Тип:",
+        "size_unit": "MB",
+        "errors": {
+          "invalid_type": "Неверный тип файла. Ожидается: {accept}",
+          "too_large": "Файл слишком большой. Максимальный размер: {maxSize} {unit}",
+          "drop_no_data": "Не удалось получить файл из перетаскивания",
+          "url_not_image": "По ссылке нет изображения",
+          "url_fetch_failed": "Не удалось загрузить изображение по ссылке",
+          "not_selected": "Файл не выбран",
+          "upload_failed": "Ошибка загрузки файла",
+          "upload_success": "Файл успешно загружен",
+          "pasted_from_clipboard": "Изображение вставлено из буфера обмена",
+          "uploading": "Загрузка..."
+        }
+      },
+      "link": {
+        "trimmed_to_url": "Лишний текст убран, оставлена только ссылка"
+      }
+    },
+    "calendar": {
+      "previous": "Предыдущий",
+      "next": "Следующий",
+      "today": "Сегодня",
+      "view": {
+        "day": "День",
+        "week": "Неделя",
+        "month": "Месяц",
+        "year": "Год"
+      }
+    }
+  }
+}

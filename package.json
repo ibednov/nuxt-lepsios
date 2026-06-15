@@ -1,0 +1,49 @@
+{
+  "name": "nuxt-lepsios",
+  "type": "module",
+  "version": "0.2.0",
+  "private": false,
+  "description": "Reusable Nuxt UI layer — shadcn-vue primitives, composables and design tokens",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@formkit/auto-animate": "^0.9.0",
+    "@internationalized/date": "^3.12.1",
+    "@nuxt/icon": "^2.2.1",
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/i18n": "^10.3.0",
+    "@tailwindcss/vite": "^4.2.4",
+    "@vee-validate/zod": "^4.15.1",
+    "@vueuse/core": "^14.2.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.20",
+    "embla-carousel-vue": "^8.6.0",
+    "nuxt": "^4.4.2",
+    "reka-ui": "^2.9.6",
+    "shadcn-nuxt": "^2.6.2",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.4",
+    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1.4.0",
+    "vaul-vue": "^0.4.1",
+    "vee-validate": "^4.15.1",
+    "vue": "^3.5.33",
+    "vue-sonner": "^2.0.9",
+    "vue-the-mask": "^0.11.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.109",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "nuxt": "^4.4.0",
+    "vue": "^3.5.0"
+  }
+}
