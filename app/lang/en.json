@@ -7,7 +7,9 @@
       "cancel": "Cancel"
     },
     "actions": {
-      "close": "Close"
+      "close": "Close",
+      "copy_success": "Successfully copied",
+      "copy_error": "Error copying"
     }
   },
   "shared": {
