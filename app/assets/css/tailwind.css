@@ -20,6 +20,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-background: var(--destructive-background);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
@@ -51,6 +52,8 @@
   --color-lepsios-three: var(--lepsios-three);
   --color-lepsios-four: var(--lepsios-four);
   --color-lepsios-five: var(--lepsios-five);
+
+  --color-lepsios-background: var(--lepsios-background);
 }
 
 :root {
@@ -99,10 +102,12 @@
   --lepsios-three: #D5C37A;
   --lepsios-four: #EFE2DB;
   --lepsios-five: #C9E0DD;
+
+  --lepsios-background: #F5F4F9;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #141414;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -118,8 +123,8 @@
   --accent-foreground: oklch(0.985 0 0);
   --success: oklch(0.627 0.216 142.496);
   --success-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --destructive: #E1294B29;
+  --destructive-foreground: #E1294B;
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
   --ring: oklch(0.439 0 0);
@@ -140,6 +145,8 @@
   --shadow-md: 0 4px 12px -2px oklch(0.145 0 0 / 0.08);
   --shadow-lg: 0 12px 32px -4px oklch(0.145 0 0 / 0.12);
   --shadow-glow: 0 0 40px oklch(0.985 0 0 / 0.15);
+
+  --lepsios-background: #272727;
 }
 
 @layer base {
