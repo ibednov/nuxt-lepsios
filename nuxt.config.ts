@@ -1,4 +1,6 @@
 export default defineNuxtConfig({
+  $meta: { name: 'lepsios' },
+
   modules: [
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
