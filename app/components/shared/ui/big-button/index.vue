@@ -22,7 +22,7 @@ const rootBase
 const tones = {
   default: {
     default:
-      'bg-accent-foreground/10 text-accent-foreground/70 hover:bg-accent-foreground/80 hover:text-accent',
+      'bg-lepsios-background text-accent-foreground hover:bg-accent-foreground/80 hover:text-accent',
     active:
       'bg-accent-foreground text-accent',
     disabled:
