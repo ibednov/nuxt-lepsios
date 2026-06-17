@@ -39,8 +39,12 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^8.2.0",
     "@iconify-json/lucide": "^1.2.109",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "eslint": "^10.2.1",
+    "eslint-plugin-check-file": "^3.3.1",
+    "eslint-plugin-vue": "^10.9.0"
   },
   "peerDependencies": {
     "nuxt": "^4.4.0",
