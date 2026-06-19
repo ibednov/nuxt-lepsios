@@ -33,11 +33,11 @@ const tones = {
   },
   invert: {
     default:
-      'bg-accent/10 text-accent/70 hover:bg-accent/80 hover:text-accent-foreground',
+      'bg-accent-foreground text-accent hover:bg-accent-foreground/90',
     active:
       'bg-accent text-accent-foreground shadow-sm ring-2 ring-accent-foreground/25 ring-offset-2 ring-offset-background',
     disabled:
-      'pointer-events-none cursor-not-allowed bg-accent/60 text-accent-foreground opacity-50',
+      'pointer-events-none cursor-not-allowed bg-accent-foreground/60 text-accent opacity-50',
   },
   list: {
     default:
