@@ -21,10 +21,29 @@ const props = withDefaults(defineProps<Props>(), {
   drawerHideFooter: false,
 })
 
-const isOpen = defineModel<boolean>('open')
+const isOpen = defineModel<boolean>('open', { default: false })
+
+const open = () => {
+  isOpen.value = true
+}
+
+const close = () => {
+  isOpen.value = false
+}
 </script>
 
 <template>
+    <div
+        v-if="$slots.trigger"
+        @click.stop="open"
+    >
+        <slot
+            name="trigger"
+            :open="open"
+            :close="close"
+        />
+    </div>
+
     <Dialog
         v-if="isMoreSmScreen"
         v-model:open="isOpen"
@@ -48,10 +67,13 @@ const isOpen = defineModel<boolean>('open')
                 :class="[dialogContentSlotClass]"
                 class="max-h-[80vh] overflow-y-auto "
             >
-                <slot />
+                <slot :close="close" />
             </div>
 
-            <slot name="footer" />
+            <slot
+                name="footer"
+                :close="close"
+            />
         </DialogContent>
     </Dialog>
 
@@ -82,14 +104,17 @@ const isOpen = defineModel<boolean>('open')
                     { 'mb-10': drawerHideFooter },
                     drawerContentSlotClass]"
             >
-                <slot />
+                <slot :close="close" />
             </div>
             <DrawerFooter
                 v-if="drawerHideFooter || $slots.footer"
                 class="pt-6 px-0"
                 :class="[drawerContentFooterClass]"
             >
-                <slot name="footer">
+                <slot
+                    name="footer"
+                    :close="close"
+                >
                     <DrawerClose
                         as-child
                     >
