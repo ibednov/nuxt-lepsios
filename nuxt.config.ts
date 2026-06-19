@@ -67,4 +67,13 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: '2026-01-11',
+
+  app: {
+    head: {
+      meta: [
+        { name: 'theme-color', content: '#272727' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+      ],
+    },
+  },
 })
