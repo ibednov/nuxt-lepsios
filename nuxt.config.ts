@@ -72,7 +72,7 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { name: 'theme-color', content: '#272727' },
-        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: '#272727' },
       ],
     },
   },
