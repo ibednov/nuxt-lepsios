@@ -15,10 +15,12 @@ interface Props {
   drawerContentSlotClass?: string
   drawerContentFooterClass?: string
   drawerHideFooter?: boolean
+  drawerFullscreen?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   drawerHideFooter: false,
+  drawerFullscreen: false,
 })
 
 const isOpen = defineModel<boolean>('open', { default: false })
@@ -30,6 +32,17 @@ const open = () => {
 const close = () => {
   isOpen.value = false
 }
+
+const drawerFullscreenClass = [
+  'gap-0 px-0',
+  'data-[vaul-drawer-direction=bottom]:max-h-dvh!',
+  'data-[vaul-drawer-direction=bottom]:h-dvh!',
+  '[&>div:first-child]:hidden',
+  '[&>div:last-child]:max-h-none',
+  '[&>div:last-child]:min-h-0',
+  '[&>div:last-child]:flex-1',
+  '[&>div:last-child]:pb-0',
+]
 </script>
 
 <template>
@@ -83,29 +96,65 @@ const close = () => {
         :class="[drawerClass]"
     >
         <DrawerContent
-            class="px-4 flex flex-col gap-6"
             :class="[
-                drawerContentClass]"
+                drawerFullscreen
+                    ? drawerFullscreenClass
+                    : 'px-4 flex flex-col gap-6',
+                drawerContentClass,
+            ]"
         >
-            <DrawerHeader
-                v-if="title || description"
-                class="text-left px-0"
-                :class="[drawerContentHeaderClass]"
-            >
-                <DrawerTitle v-if="title">
-                    {{ title }}
-                </DrawerTitle>
-                <DrawerDescription v-if="description">
-                    {{ description }}
-                </DrawerDescription>
-            </DrawerHeader>
-            <div
-                :class="[
-                    { 'mb-10': drawerHideFooter },
-                    drawerContentSlotClass]"
-            >
-                <slot :close="close" />
-            </div>
+            <template v-if="drawerFullscreen">
+                <div class="pointer-events-none sticky top-3 z-10 flex h-0 justify-end px-3">
+                    <DrawerClose as-child>
+                        <button
+                            type="button"
+                            class="pointer-events-auto flex size-7 items-center justify-center rounded-full bg-lepsios-field text-white"
+                            aria-label="Close"
+                        >
+                            <Icon
+                                name="akar-icons:cross"
+                                size="12"
+                            />
+                        </button>
+                    </DrawerClose>
+                </div>
+
+                <div
+                    :class="[
+                        'flex flex-col',
+                        drawerContentSlotClass,
+                    ]"
+                >
+                    <slot
+                        v-if="$slots.header"
+                        name="header"
+                    />
+                    <slot :close="close" />
+                </div>
+            </template>
+
+            <template v-else>
+                <DrawerHeader
+                    v-if="title || description"
+                    class="text-left px-0"
+                    :class="[drawerContentHeaderClass]"
+                >
+                    <DrawerTitle v-if="title">
+                        {{ title }}
+                    </DrawerTitle>
+                    <DrawerDescription v-if="description">
+                        {{ description }}
+                    </DrawerDescription>
+                </DrawerHeader>
+                <div
+                    :class="[
+                        { 'mb-10': drawerHideFooter },
+                        drawerContentSlotClass,
+                    ]"
+                >
+                    <slot :close="close" />
+                </div>
+            </template>
             <DrawerFooter
                 v-if="!drawerHideFooter && ($slots.footer || cancelButtonText)"
                 class="pt-6 px-0"
