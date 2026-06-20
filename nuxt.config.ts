@@ -52,20 +52,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  icon: {
-    provider: 'none',
-    fallbackToApi: false,
-    clientBundle: {
-      scan: {
-        globInclude: ['**/*.{vue,ts,tsx,jsx,md,mdc,mdx,yml,yaml}'],
-        globExclude: ['node_modules', 'dist', 'build', 'coverage', 'test', 'tests', '.*'],
-      },
-      sizeLimitKb: 512,
-    },
-    serverBundle: {
-      collections: ['lucide'],
-    },
-  },
   compatibilityDate: '2026-01-11',
 
   app: {
