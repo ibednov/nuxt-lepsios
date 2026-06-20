@@ -8,7 +8,10 @@ defineProps<{
 </script>
 
 <template>
-    <container-modal-drawer :title="drawerTitle || label">
+    <container-modal-drawer
+        :title="drawerTitle || label"
+        drawer-content-slot-class="w-full"
+    >
         <template #trigger>
             <div class="flex flex-col gap-2">
                 <Label class="text-sm text-muted-foreground">

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { CalendarGridBody, type CalendarGridBodyProps } from 'reka-ui'
 
 const props = defineProps<CalendarGridBodyProps>()

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { DateValue } from '@internationalized/date'
 import type { FieldDataInterface } from '~/interfaces/common/field'
-import { DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
+import { DateFormatter, getLocalTimeZone, parseDate } from '@internationalized/date'
 
 interface Props {
   isShowLabel?: boolean
@@ -18,11 +17,11 @@ const emit = defineEmits<{
 
 const data = defineModel<FieldDataInterface | undefined>()
 
-const dateFormatter = new DateFormatter('ru-RU', {
-  dateStyle: 'long',
-})
+const { locale: calendarLocale } = useCalendarLocale()
 
-const calendarValue = ref<DateValue>()
+const dateFormatter = computed(() => new DateFormatter(calendarLocale.value, {
+  dateStyle: 'long',
+}))
 
 const emitUpdate = (newValue: any) => {
   if (data.value) {
@@ -47,43 +46,12 @@ const formattedDate = computed(() => {
     : String(data.value.value)
 
   try {
-    return dateFormatter.format(parseDate(isoDate).toDate(getLocalTimeZone()))
+    return dateFormatter.value.format(parseDate(isoDate).toDate(getLocalTimeZone()))
   }
   catch {
     return String(data.value.value)
   }
 })
-
-const syncCalendarFromModel = () => {
-  if (!data.value?.value) {
-    calendarValue.value = undefined
-    return
-  }
-
-  const isoDate = String(data.value.value).includes('T')
-    ? String(data.value.value).split('T')[0]!
-    : String(data.value.value)
-
-  try {
-    calendarValue.value = parseDate(isoDate)
-  }
-  catch {
-    calendarValue.value = undefined
-  }
-}
-
-const handleCalendarUpdate = (value: DateValue | undefined, close: () => void) => {
-  if (value) {
-    const month = String(value.month).padStart(2, '0')
-    const day = String(value.day).padStart(2, '0')
-    emitUpdate(`${value.year}-${month}-${day}`)
-  }
-  else {
-    emitUpdate(undefined)
-  }
-
-  close()
-}
 
 const tagsValue = computed({
   get: () => {
@@ -150,8 +118,6 @@ const thumbnailValue = computed({
 })
 
 const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
-
-syncCalendarFromModel()
 </script>
 
 <template>
@@ -199,11 +165,11 @@ syncCalendarFromModel()
             :drawer-title="data.label"
         >
             <template #default="{ close }">
-                <Calendar
-                    v-model="calendarValue"
-                    :min-value="today(getLocalTimeZone())"
-                    class="rounded-2xl border"
-                    @update:model-value="handleCalendarUpdate($event, close)"
+                <shared-ui-field-picker-date
+                    :model-value="data.value"
+                    :range="data.dateRange ?? 'future'"
+                    @update:model-value="emitUpdate"
+                    @select="close()"
                 />
             </template>
         </shared-ui-field-picker>
@@ -286,6 +252,7 @@ syncCalendarFromModel()
             <shared-ui-datepicker
                 v-if="data && data.type === 'date'"
                 :model-value="data.value"
+                :range="data.dateRange ?? 'future'"
                 :placeholder="data.placeholder"
                 @update:model-value="emitUpdate"
             />

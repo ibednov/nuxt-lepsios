@@ -2,26 +2,31 @@
 import type { DateValue } from '@internationalized/date'
 import {
   DateFormatter,
-
   getLocalTimeZone,
   parseDate,
   today,
 } from '@internationalized/date'
 
 import dayjs from 'dayjs'
+import { useCalendarLocale } from '~/composables/ui/calendar'
+import type { FieldDateRange } from '~/interfaces/common/field'
 import { cn } from '~/lib/utils'
+import { getCalendarRangeBounds } from '~/utils/calendar/range'
 
-const props = defineProps<{
-  disablePast?: boolean
-}>()
+const props = withDefaults(defineProps<{
+  range?: FieldDateRange
+}>(), {
+  range: 'future',
+})
 
 const { t } = useI18n()
+const { locale: calendarLocale } = useCalendarLocale()
 
 const isOpen = ref(false)
 
-const df = new DateFormatter('ru-RU', {
+const dateFormatter = computed(() => new DateFormatter(calendarLocale.value, {
   dateStyle: 'long',
-})
+}))
 
 const dateValue = ref<DateValue>()
 
@@ -29,7 +34,6 @@ const data = defineModel<Date | string | null | undefined>('modelValue')
 
 const handleCalendarUpdate = (newValue: DateValue | undefined) => {
   if (newValue) {
-    // Форматируем дату напрямую без конвертации часового пояса: YYYY-MM-DD
     const year = String(newValue.year).padStart(4, '0')
     const month = String(newValue.month).padStart(2, '0')
     const day = String(newValue.day).padStart(2, '0')
@@ -41,13 +45,14 @@ const handleCalendarUpdate = (newValue: DateValue | undefined) => {
   isOpen.value = false
 }
 
-const calendarMinValue = computed(() => props.disablePast ? today(getLocalTimeZone()) : undefined)
+const rangeBounds = computed(() => getCalendarRangeBounds(props.range))
+const calendarMinValue = computed(() => rangeBounds.value.minValue)
+const calendarMaxValue = computed(() => rangeBounds.value.maxValue)
 
 onMounted(() => {
   if (data.value) {
     let isoDateString: string | undefined
     if (typeof data.value === 'string') {
-      // Если это полная дата с временем (RFC3339), извлекаем только дату YYYY-MM-DD
       if (/^\d{4}-\d{2}-\d{2}T/.test(data.value)) {
         isoDateString = data.value.split('T')[0]
       }
@@ -91,15 +96,16 @@ onMounted(() => {
                     name="lucide:calendar"
                     size="16"
                 />
-                {{ dateValue ? df.format(dateValue.toDate(getLocalTimeZone())) : t('shared.ui.datepicker.placeholder') }}
+                {{ dateValue ? dateFormatter.format(dateValue.toDate(getLocalTimeZone())) : t('shared.ui.datepicker.placeholder') }}
             </Button>
         </PopoverTrigger>
         <PopoverContent
             class="w-auto p-0 z-120"
         >
-            <Calendar
+            <shared-ui-calendar
                 v-model="dateValue"
                 :min-value="calendarMinValue"
+                :max-value="calendarMaxValue"
                 initial-focus
                 @update:model-value="handleCalendarUpdate"
             />

@@ -1,7 +1,8 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { CalendarHeadCell, type CalendarHeadCellProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'
+import { calendarHeadCellVariants } from './variants'
 
 const props = defineProps<CalendarHeadCellProps & { class?: HTMLAttributes['class'] }>()
 
@@ -17,7 +18,7 @@ const forwardedProps = useForwardProps(delegatedProps)
 <template>
     <CalendarHeadCell
         data-slot="calendar-head-cell"
-        :class="cn('text-muted-foreground rounded-md w-8 font-normal text-[0.8rem]', props.class)"
+        :class="cn(calendarHeadCellVariants(), props.class)"
         v-bind="forwardedProps"
     >
         <slot />

@@ -1,3 +1,5 @@
+export type FieldDateRange = 'future' | 'past' | 'any'
+
 export interface FieldOption {
   label: string
   value: string | number
@@ -30,6 +32,7 @@ export interface FieldInterface {
   accept?: string
   maxSize?: number
   appearance?: 'default' | 'drawer'
+  dateRange?: FieldDateRange
   hint?: string
   hints?: Record<string, string>
   disabled?: boolean
