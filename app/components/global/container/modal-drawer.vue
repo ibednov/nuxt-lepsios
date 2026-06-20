@@ -107,7 +107,7 @@ const close = () => {
                 <slot :close="close" />
             </div>
             <DrawerFooter
-                v-if="drawerHideFooter || $slots.footer"
+                v-if="!drawerHideFooter && ($slots.footer || cancelButtonText)"
                 class="pt-6 px-0"
                 :class="[drawerContentFooterClass]"
             >
