@@ -272,9 +272,9 @@ const getItemTitle = (label: string | undefined, index: number) => `${label || '
                                 :key="field.key || fieldIndex"
                             >
                                 <shared-ui-field-picker-trigger
-                                    v-if="field.type === 'select' && field.key === 'variant'"
+                                    v-if="field.type === 'select' && (field.key === 'variant' || field.key === 'type') && shouldShowField(Number(itemIndex), field.key)"
                                     :value="getDrawerVariantLabel(Number(itemIndex), field)"
-                                    :drawer-title="data.label"
+                                    :drawer-title="field.label || data.label"
                                 >
                                     <template #default="{ close }">
                                         <shared-ui-radio-option-list

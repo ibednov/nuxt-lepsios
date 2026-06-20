@@ -6,6 +6,7 @@ import { cn } from '~/lib/utils'
 defineProps<{
   label?: string
   options: FieldThumbnailOption[]
+  disabled?: boolean
 }>()
 
 const modelValue = defineModel<string>({ required: true })
@@ -20,7 +21,10 @@ const modelValue = defineModel<string>({ required: true })
             {{ label }}
         </Label>
 
-        <div class="flex gap-2 overflow-x-auto pb-1">
+        <div
+            class="flex gap-2 overflow-x-auto pb-1"
+            :class="{ 'pointer-events-none opacity-50': disabled }"
+        >
             <button
                 v-for="option in options"
                 :key="option.id"
@@ -29,6 +33,7 @@ const modelValue = defineModel<string>({ required: true })
                 :class="modelValue === option.id
                     ? 'ring-2 ring-accent-foreground ring-offset-2 ring-offset-background'
                     : 'opacity-80'"
+                :disabled="disabled"
                 @click="modelValue = option.id"
             >
                 <div

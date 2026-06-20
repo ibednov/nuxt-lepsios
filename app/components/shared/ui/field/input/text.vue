@@ -11,6 +11,7 @@ interface Props {
   type?: string
   maxlength?: number
   inputClass?: HTMLAttributes['class']
+  disabled?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
@@ -37,6 +38,7 @@ const modelValue = defineModel<string>({ required: true })
             :type="type"
             :placeholder="placeholder"
             :maxlength="maxlength"
+            :disabled="disabled"
             :class="cn('h-12 rounded-2xl border-0 bg-accent-foreground/10 px-4', inputClass)"
         />
     </div>
@@ -47,6 +49,7 @@ const modelValue = defineModel<string>({ required: true })
         :type="type"
         :placeholder="placeholder"
         :maxlength="maxlength"
+        :disabled="disabled"
         :class="cn(
             variant === 'inline'
                 ? 'h-12 rounded-full border-0 bg-accent-foreground/10 px-4'

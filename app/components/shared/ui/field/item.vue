@@ -127,6 +127,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
             v-model="thumbnailValue"
             :label="data.label"
             :options="data.thumbnailOptions || []"
+            :disabled="data.disabled"
         />
 
         <shared-ui-field-input-text
@@ -138,6 +139,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
             :type="data.inputType || 'text'"
             :maxlength="data.maxLength"
             :input-class="data.class"
+            :disabled="data.disabled"
             @update:model-value="emitUpdate"
         />
 
