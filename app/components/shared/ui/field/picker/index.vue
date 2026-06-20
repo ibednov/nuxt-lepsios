@@ -14,7 +14,7 @@ defineProps<{
     >
         <template #trigger>
             <div class="flex flex-col gap-2">
-                <Label class="text-sm text-muted-foreground">
+                <Label class="text-sm text-tertiary">
                     {{ label }}
                 </Label>
                 <button

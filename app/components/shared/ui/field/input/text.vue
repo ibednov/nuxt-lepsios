@@ -29,7 +29,7 @@ const modelValue = defineModel<string>({ required: true })
     >
         <Label
             v-if="label"
-            class="text-sm text-muted-foreground"
+            class="text-sm text-tertiary"
         >
             {{ label }}
         </Label>

@@ -16,7 +16,7 @@ const modelValue = defineModel<string>({ required: true })
     <div class="flex flex-col gap-3">
         <Label
             v-if="label"
-            class="text-sm text-muted-foreground"
+            class="text-sm text-tertiary"
         >
             {{ label }}
         </Label>

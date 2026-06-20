@@ -29,7 +29,7 @@ const data = defineModel<FieldDataInterface>()
     >
         <Label
             v-if="isShowLabel && data?.label"
-            class="text-sm text-muted-foreground"
+            class="text-sm text-tertiary"
         >
             {{ data.label }}
         </Label>
