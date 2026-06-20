@@ -37,6 +37,7 @@ const drawerFullscreenClass = [
   'gap-0 px-0',
   'data-[vaul-drawer-direction=bottom]:max-h-dvh!',
   'data-[vaul-drawer-direction=bottom]:h-dvh!',
+  'data-[vaul-drawer-direction=bottom]:mt-0!',
   '[&>div:first-child]:hidden',
   '[&>div:last-child]:max-h-none',
   '[&>div:last-child]:min-h-0',
@@ -104,7 +105,7 @@ const drawerFullscreenClass = [
             ]"
         >
             <template v-if="drawerFullscreen">
-                <div class="pointer-events-none sticky top-3 z-10 flex h-0 justify-end px-3">
+                <div class="pointer-events-none sticky top-2 z-10 flex h-0 justify-end px-2">
                     <DrawerClose as-child>
                         <button
                             type="button"
@@ -120,8 +121,8 @@ const drawerFullscreenClass = [
                 </div>
 
                 <div
+                    class="flex flex-col gap-5 px-2 pt-2 pb-8"
                     :class="[
-                        'flex flex-col',
                         drawerContentSlotClass,
                     ]"
                 >
