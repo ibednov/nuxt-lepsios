@@ -39,7 +39,7 @@ const modelValue = defineModel<string>({ required: true })
             :placeholder="placeholder"
             :maxlength="maxlength"
             :disabled="disabled"
-            :class="cn('h-12 rounded-2xl border-0 bg-accent-foreground/10 px-4', inputClass)"
+            :class="cn('h-12 rounded-2xl border-0 bg-lepsios-field px-4', inputClass)"
         />
     </div>
 
@@ -52,7 +52,7 @@ const modelValue = defineModel<string>({ required: true })
         :disabled="disabled"
         :class="cn(
             variant === 'inline'
-                ? 'h-12 rounded-full border-0 bg-accent-foreground/10 px-4'
+                ? 'h-12 rounded-full border-0 bg-lepsios-field px-4'
                 : undefined,
             inputClass,
         )"

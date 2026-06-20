@@ -6,7 +6,7 @@ export const fieldPickerDateVariants = cva(
     variants: {
       variant: {
         default: 'border bg-background',
-        drawer: 'bg-accent-foreground/5',
+        drawer: 'bg-lepsios-surface',
       },
     },
     defaultVariants: {
@@ -16,12 +16,12 @@ export const fieldPickerDateVariants = cva(
 )
 
 export const fieldPickerSelectTriggerVariants = cva(
-  'h-10 w-full rounded-xl border-0 bg-accent-foreground/10',
+  'h-10 w-full rounded-xl border-0 bg-lepsios-field',
   {
     variants: {
       variant: {
         default: 'rounded-md border bg-background',
-        drawer: 'rounded-xl border-0 bg-accent-foreground/10',
+        drawer: 'rounded-xl border-0 bg-lepsios-field',
       },
     },
     defaultVariants: {

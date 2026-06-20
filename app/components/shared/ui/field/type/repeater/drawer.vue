@@ -106,7 +106,7 @@ const data = defineModel<FieldDataInterface>()
 
                 <div
                     v-if="Number(itemIndex) < items.length - 1"
-                    class="mx-4 h-px bg-border/40"
+                    class="h-px bg-lepsios-field/50"
                 />
             </template>
         </shared-ui-field-group>

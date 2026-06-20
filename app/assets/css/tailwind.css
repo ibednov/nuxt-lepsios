@@ -54,6 +54,8 @@
   --color-lepsios-five: var(--lepsios-five);
 
   --color-lepsios-background: var(--lepsios-background);
+  --color-lepsios-surface: var(--lepsios-surface);
+  --color-lepsios-field: var(--lepsios-field);
 }
 
 :root {
@@ -104,6 +106,8 @@
   --lepsios-five: #C9E0DD;
 
   --lepsios-background: #272727;
+  --lepsios-surface: #3B3B3B;
+  --lepsios-field: #4E4E4E;
 }
 
 .dark {
@@ -126,7 +130,7 @@
   --destructive: #E1294B29;
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
+  --input: #4E4E4E;
   --ring: oklch(0.439 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -147,6 +151,8 @@
   --shadow-glow: 0 0 40px oklch(0.985 0 0 / 0.15);
 
   --lepsios-background: #272727;
+  --lepsios-surface: #3B3B3B;
+  --lepsios-field: #4E4E4E;
 }
 
 @layer base {

@@ -11,7 +11,7 @@ defineProps<{
         <template #trigger>
             <button
                 type="button"
-                class="flex h-12 w-full items-center justify-between gap-3 rounded-full bg-accent-foreground/10 px-4 text-left transition-colors hover:bg-accent-foreground/5"
+                class="flex h-12 w-full items-center justify-between gap-3 rounded-full bg-lepsios-field px-4 text-left transition-colors hover:bg-lepsios-field/80"
             >
                 <span
                     class="truncate text-base"
