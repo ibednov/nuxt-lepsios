@@ -81,12 +81,12 @@ export const extractDataFromFields = (fieldsData: FieldDataInterface[]): Record<
   const processField = (field: FieldDataInterface) => {
     if (field.type === 'group' && field.fields) {
       field.fields.forEach((subField) => {
-        if (subField.key) {
+        if (subField.key && subField.submit !== false) {
           payload[subField.key] = extractValueFromField(subField)
         }
       })
     }
-    else if (field.key) {
+    else if (field.key && field.submit !== false) {
       payload[field.key] = extractValueFromField(field)
     }
   }

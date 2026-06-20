@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
 import type { FieldDataInterface } from '~/interfaces/common/field'
+import { DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
 
 interface Props {
   isShowLabel?: boolean
@@ -16,6 +18,12 @@ const emit = defineEmits<{
 
 const data = defineModel<FieldDataInterface | undefined>()
 
+const dateFormatter = new DateFormatter('ru-RU', {
+  dateStyle: 'long',
+})
+
+const calendarValue = ref<DateValue>()
+
 const emitUpdate = (newValue: any) => {
   if (data.value) {
     data.value = { ...data.value, value: newValue }
@@ -28,6 +36,54 @@ const selectedOption = computed(() => {
   }
   return data.value.options.find(option => option.value === data.value?.value)
 })
+
+const formattedDate = computed(() => {
+  if (!data.value?.value) {
+    return ''
+  }
+
+  const isoDate = String(data.value.value).includes('T')
+    ? String(data.value.value).split('T')[0]!
+    : String(data.value.value)
+
+  try {
+    return dateFormatter.format(parseDate(isoDate).toDate(getLocalTimeZone()))
+  }
+  catch {
+    return String(data.value.value)
+  }
+})
+
+const syncCalendarFromModel = () => {
+  if (!data.value?.value) {
+    calendarValue.value = undefined
+    return
+  }
+
+  const isoDate = String(data.value.value).includes('T')
+    ? String(data.value.value).split('T')[0]!
+    : String(data.value.value)
+
+  try {
+    calendarValue.value = parseDate(isoDate)
+  }
+  catch {
+    calendarValue.value = undefined
+  }
+}
+
+const handleCalendarUpdate = (value: DateValue | undefined, close: () => void) => {
+  if (value) {
+    const month = String(value.month).padStart(2, '0')
+    const day = String(value.day).padStart(2, '0')
+    emitUpdate(`${value.year}-${month}-${day}`)
+  }
+  else {
+    emitUpdate(undefined)
+  }
+
+  close()
+}
 
 const tagsValue = computed({
   get: () => {
@@ -53,6 +109,18 @@ const switchValue = computed({
   },
 })
 
+const toggleHint = computed(() => {
+  if (!data.value) {
+    return ''
+  }
+
+  if (data.value.hints) {
+    return data.value.hints[String(switchValue.value)] ?? data.value.hint ?? ''
+  }
+
+  return data.value.hint ?? ''
+})
+
 const numberValue = computed({
   get: () => {
     if (data.value?.type === 'input' && data.value?.valueType === 'number') {
@@ -73,31 +141,117 @@ const priceCurrency = computed({
     }
   },
 })
+
+const thumbnailValue = computed({
+  get: () => String(data.value?.value ?? ''),
+  set: (val: string) => {
+    emitUpdate(val)
+  },
+})
+
+const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
+
+syncCalendarFromModel()
 </script>
 
 <template>
     <template v-if="data">
-        <div class="flex flex-col gap-2">
+        <shared-ui-field-thumbnail
+            v-if="data.type === 'thumbnail'"
+            v-model="thumbnailValue"
+            :label="data.label"
+            :options="data.thumbnailOptions || []"
+        />
+
+        <shared-ui-field-input-text
+            v-else-if="isDrawerAppearance && data.type === 'input'"
+            :model-value="data.value ?? ''"
+            variant="drawer"
+            :label="data.label"
+            :placeholder="data.placeholder"
+            :type="data.inputType || 'text'"
+            :maxlength="data.maxLength"
+            :input-class="data.class"
+            @update:model-value="emitUpdate"
+        />
+
+        <shared-ui-field-picker
+            v-else-if="isDrawerAppearance && data.type === 'select'"
+            :label="data.label || ''"
+            :value="selectedOption?.label"
+            :placeholder="data.placeholder"
+            :drawer-title="data.label"
+        >
+            <template #default="{ close }">
+                <shared-ui-radio-option-list
+                    :model-value="data.value"
+                    :options="data.options"
+                    @update:model-value="(value: string | number) => { emitUpdate(value); close() }"
+                />
+            </template>
+        </shared-ui-field-picker>
+
+        <shared-ui-field-picker
+            v-else-if="isDrawerAppearance && data.type === 'date'"
+            :label="data.label || ''"
+            :value="formattedDate"
+            :placeholder="data.placeholder"
+            :drawer-title="data.label"
+        >
+            <template #default="{ close }">
+                <Calendar
+                    v-model="calendarValue"
+                    :min-value="today(getLocalTimeZone())"
+                    class="rounded-2xl border"
+                    @update:model-value="handleCalendarUpdate($event, close)"
+                />
+            </template>
+        </shared-ui-field-picker>
+
+        <shared-ui-field-toggle
+            v-else-if="isDrawerAppearance && data.type === 'switch'"
+            v-model="switchValue"
+            :title="data.label || ''"
+            :hint="toggleHint"
+            :disabled="data.disabled"
+        >
+            <template
+                v-if="data.iconSrc"
+                #icon
+            >
+                <img
+                    :src="data.iconSrc"
+                    alt=""
+                    class="size-10 shrink-0 object-contain"
+                >
+            </template>
+        </shared-ui-field-toggle>
+
+        <div
+            v-else
+            class="flex flex-col gap-2"
+        >
             <Label v-if="isShowLabel">
                 {{ data.label || data.placeholder }}
             </Label>
-            <Input
+            <shared-ui-field-input-text
                 v-if="data && data.type === 'input' && data.valueType !== 'number'"
                 :model-value="data.value ?? ''"
+                variant="default"
                 :type="data.inputType || 'text'"
                 :placeholder="data.placeholder"
-                :class="data.class"
                 :maxlength="data.maxLength"
+                :input-class="data.class"
                 @update:model-value="emitUpdate"
             />
-            <shared-ui-input-link
+            <shared-ui-field-input-link
                 v-if="data && data.type === 'link'"
                 :id="data.key ? `link-${data.key}` : undefined"
                 :model-value="data.value"
                 :placeholder="data.placeholder"
                 @update:model-value="emitUpdate"
             />
-            <shared-ui-input-phone
+            <shared-ui-field-input-phone
                 v-if="data && data.type === 'phone'"
                 :id="data.key ? `phone-${data.key}` : undefined"
                 :model-value="data.value"
@@ -105,7 +259,7 @@ const priceCurrency = computed({
                 :class="data.class"
                 @update:model-value="emitUpdate"
             />
-            <shared-ui-input-otp
+            <shared-ui-field-input-otp
                 v-if="data && data.type === 'otp'"
                 :id="data.key ? `otp-${data.key}` : undefined"
                 :model-value="data.value"
@@ -113,7 +267,7 @@ const priceCurrency = computed({
                 :placeholder="data.placeholder"
                 :class="data.class"
                 :has-error="!!data.error"
-                @update:model-value="(val) => { emitUpdate(val); emit('update:error', null) }"
+                @update:model-value="(val: string[] | null) => { emitUpdate(val); emit('update:error', null) }"
                 @complete="emit('complete')"
             />
             <NumberField
@@ -230,7 +384,7 @@ const priceCurrency = computed({
                     {{ data.label || data.placeholder }}
                 </Label>
             </div>
-            <shared-ui-input-price
+            <shared-ui-field-input-price
                 v-if="data && data.type === 'price'"
                 :id="data.key ? `price-${data.key}` : undefined"
                 v-model:currency="priceCurrency"
@@ -240,7 +394,7 @@ const priceCurrency = computed({
                 :class="data.class"
                 @update:model-value="emitUpdate"
             />
-            <shared-ui-input-file
+            <shared-ui-field-input-file
                 v-if="data && data.type === 'file'"
                 :id="data.key ? `file-${data.key}` : undefined"
                 :model-value="data.file || null"
@@ -250,7 +404,7 @@ const priceCurrency = computed({
                 :current-image-url="data.currentImageUrl"
                 :current-image-name="data.currentImageName"
                 :class="data.class"
-                @update:model-value="(val) => emitUpdate(val)"
+                @update:model-value="(val: File | null) => emitUpdate(val)"
             />
         </div>
     </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FieldDataInterface } from '~/interfaces/common/field'
+import type { FieldDataInterface, FieldOption } from '~/interfaces/common/field'
 
 interface Props {
   isShowLabel?: boolean
@@ -58,20 +58,39 @@ const repeaterItemFields = computed(() => {
   )
 })
 
+const isDrawerRepeater = computed(() =>
+  data.value?.type === 'repeater' && data.value.appearance === 'drawer',
+)
+
+const getOptionLabel = (
+  options: FieldOption[] | undefined,
+  value: string | number | null | undefined,
+  fallback = '',
+) => options?.find(option => option.value === value)?.label ?? fallback
+
+const createRepeaterItem = () => ({
+  ...(data.value?.defaultItem || {}),
+})
+
 const shouldShowField = (itemIndex: number, fieldKey: string | undefined) => {
   if (fieldKey !== 'variant') {
     return true
   }
 
   const item = repeaterItems.value[itemIndex]
-  return item?.type === 'physical'
+  return !item?.type || item.type === 'physical'
 }
 
 const addRepeaterItem = () => {
   if (data.value?.type === 'repeater' && data.value.fields) {
-    const newItem: any = {}
-    data.value.fields.forEach((field) => {
-      if (field.key) {
+    const newItem = createRepeaterItem()
+
+    if (!data.value.defaultItem && data.value.fields) {
+      data.value.fields.forEach((field) => {
+        if (!field.key) {
+          return
+        }
+
         if (field.type === 'tags' || field.type === 'repeater') {
           newItem[field.key] = []
         }
@@ -84,11 +103,7 @@ const addRepeaterItem = () => {
         else {
           newItem[field.key] = ''
         }
-      }
-    })
-
-    if (data.value.key === 'delivery_points' && !newItem.type) {
-      newItem.type = 'physical'
+      })
     }
 
     if (!data.value) {
@@ -104,13 +119,23 @@ const addRepeaterItem = () => {
 }
 
 const removeRepeaterItem = (index: number) => {
-  if (data.value?.type === 'repeater' && Array.isArray(data.value.value)) {
-    const newItems = [...data.value.value]
-    newItems.splice(index, 1)
+  if (data.value?.type !== 'repeater' || !Array.isArray(data.value.value)) {
+    return
+  }
+
+  if (isDrawerRepeater.value && data.value.value.length <= 1) {
     data.value = {
       ...data.value,
-      value: newItems,
+      value: [createRepeaterItem()],
     }
+    return
+  }
+
+  const newItems = [...data.value.value]
+  newItems.splice(index, 1)
+  data.value = {
+    ...data.value,
+    value: newItems,
   }
 }
 
@@ -137,7 +162,7 @@ const updateRepeaterField = (itemIndex: number, field: any, val: any) => {
 
   const currentItems = [...data.value.value]
   if (!currentItems[itemIdx]) {
-    currentItems[itemIdx] = {}
+    currentItems[itemIdx] = createRepeaterItem()
   }
 
   currentItems[itemIdx] = {
@@ -158,13 +183,50 @@ const updateRepeaterField = (itemIndex: number, field: any, val: any) => {
   }
 }
 
+const updateDrawerRepeaterVariant = (itemIndex: number, field: FieldDataInterface, variant: string | number, close: () => void) => {
+  updateRepeaterField(itemIndex, field, variant)
+  close()
+}
+
+const updateDrawerRepeaterValue = (itemIndex: number, field: FieldDataInterface, value: string) => {
+  updateRepeaterField(itemIndex, field, value)
+}
+
+const getDrawerVariantLabel = (itemIndex: number, field: FieldDataInterface) => {
+  const item = repeaterItems.value[itemIndex]
+  return getOptionLabel(field.options, item?.[field.key!], field.placeholder)
+}
+
 const getItemTitle = (label: string | undefined, index: number) => `${label || 'Элемент'} ${index + 1}`
 </script>
 
 <template>
     <template v-if="data">
         <template v-if="data.type === 'group' && data.fields">
+            <shared-ui-field-group
+                v-if="data.appearance === 'drawer'"
+                :class="data.class"
+            >
+                <template
+                    v-for="(field, index) in data.fields"
+                    :key="field.key || index"
+                >
+                    <shared-ui-field-item
+                        v-model="data.fields[index]"
+                        :is-show-label="isShowLabel"
+                        @complete="$emit('complete')"
+                        @update:error="$emit('update:error', $event)"
+                    />
+
+                    <div
+                        v-if="index < data.fields.length - 1"
+                        class="mx-4 h-px bg-border/40"
+                    />
+                </template>
+            </shared-ui-field-group>
+
             <div
+                v-else
                 class="flex flex-col gap-3"
                 :class="data.class"
             >
@@ -185,8 +247,89 @@ const getItemTitle = (label: string | undefined, index: number) => `${label || '
                 </div>
             </div>
         </template>
+
         <template v-else-if="data.type === 'repeater' && data.fields">
             <div
+                v-if="isDrawerRepeater"
+                class="flex flex-col gap-2"
+                :class="data.class"
+            >
+                <Label
+                    v-if="isShowLabel && data.label"
+                    class="text-sm text-muted-foreground"
+                >
+                    {{ data.label }}
+                </Label>
+
+                <shared-ui-field-group>
+                    <template
+                        v-for="(item, itemIndex) in repeaterItems"
+                        :key="itemIndex"
+                    >
+                        <div class="flex flex-col gap-2 px-4 py-4">
+                            <template
+                                v-for="(field, fieldIndex) in data.fields"
+                                :key="field.key || fieldIndex"
+                            >
+                                <shared-ui-field-picker-trigger
+                                    v-if="field.type === 'select' && field.key === 'variant'"
+                                    :value="getDrawerVariantLabel(Number(itemIndex), field)"
+                                    :drawer-title="data.label"
+                                >
+                                    <template #default="{ close }">
+                                        <shared-ui-radio-option-list
+                                            :model-value="item[field.key!]"
+                                            :options="field.options"
+                                            @update:model-value="updateDrawerRepeaterVariant(Number(itemIndex), field, $event, close)"
+                                        />
+                                    </template>
+                                </shared-ui-field-picker-trigger>
+
+                                <div
+                                    v-else-if="field.type === 'input'"
+                                    class="flex items-center gap-2"
+                                >
+                                    <shared-ui-field-input-text
+                                        :model-value="item[field.key!] || ''"
+                                        variant="inline"
+                                        input-class="flex-1"
+                                        :placeholder="field.placeholder"
+                                        @update:model-value="updateDrawerRepeaterValue(Number(itemIndex), field, $event)"
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent-foreground/10 text-muted-foreground transition-colors hover:bg-accent-foreground/15"
+                                        @click="removeRepeaterItem(Number(itemIndex))"
+                                    >
+                                        <Icon
+                                            name="lucide:trash-2"
+                                            size="16"
+                                        />
+                                    </button>
+                                </div>
+                            </template>
+
+                            <button
+                                v-if="Number(itemIndex) === repeaterItems.length - 1"
+                                type="button"
+                                class="self-start rounded-full bg-accent-foreground/10 px-4 py-2 text-sm text-accent-foreground transition-colors hover:bg-accent-foreground/15"
+                                @click="addRepeaterItem"
+                            >
+                                {{ data.addButtonText || 'Добавить' }}
+                            </button>
+                        </div>
+
+                        <div
+                            v-if="Number(itemIndex) < repeaterItems.length - 1"
+                            class="mx-4 h-px bg-border/40"
+                        />
+                    </template>
+                </shared-ui-field-group>
+            </div>
+
+            <div
+                v-else
                 class="flex flex-col gap-4"
                 :class="data.class"
             >
@@ -267,6 +410,7 @@ const getItemTitle = (label: string | undefined, index: number) => `${label || '
                 </div>
             </div>
         </template>
+
         <shared-ui-field-item
             v-else
             v-model="data"
