@@ -7,7 +7,7 @@ import { cn } from '~/lib/utils'
 import { buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
-  textAlign?: ButtonVariants['align']
+  textAlign?: ButtonVariants['textAlign']
   variant?: ButtonVariants['variant']
   size?: ButtonVariants['size']
   class?: HTMLAttributes['class']
