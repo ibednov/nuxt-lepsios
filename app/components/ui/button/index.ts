@@ -20,6 +20,7 @@ export const buttonVariants = cva(
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
         soft: 'bg-lepsios-field text-accent-foreground hover:bg-lepsios-field/80',
+        badge: 'bg-lepsios-surface/80 text-accent-foreground font-medium shadow-none hover:bg-lepsios-surface',
       },
       align: {
         left: 'justify-start',
@@ -36,6 +37,7 @@ export const buttonVariants = cva(
         'icon': 'size-9',
         'pill': 'h-auto rounded-full px-4 py-2 text-sm font-normal',
         'pill-icon': 'size-10 shrink-0 rounded-full',
+        'badge': 'h-9 w-fit min-h-9 shrink-0 rounded-full px-4 pt-2 pb-[9px] text-xs font-medium gap-0.5',
       },
     },
     defaultVariants: {
