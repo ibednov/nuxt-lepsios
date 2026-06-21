@@ -1,4 +1,5 @@
-import { cva, type VariantProps } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 
 export { default as Button } from './Button.vue'
 
@@ -20,20 +21,27 @@ export const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         soft: 'bg-lepsios-field text-accent-foreground hover:bg-lepsios-field/80',
       },
+      align: {
+        left: 'justify-start',
+        center: 'justify-center',
+        right: 'justify-end',
+      },
       size: {
-        default: 'h-9 px-5 py-2 has-[>svg]:px-3',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        full: 'w-full h-full',
-        big: 'h-14 w-full rounded-full ',
-        icon: 'size-9',
-        pill: 'h-auto rounded-full px-4 py-2 text-sm font-normal',
+        'default': 'h-9 px-5 py-2 has-[>svg]:px-3',
+        'sm': 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
+        'lg': 'h-10 rounded-md px-6 has-[>svg]:px-4',
+        'full': 'w-full h-full',
+        'base': 'h-14 rounded-2xl px-4 py-2',
+        'big': 'h-14 w-full rounded-full',
+        'icon': 'size-9',
+        'pill': 'h-auto rounded-full px-4 py-2 text-sm font-normal',
         'pill-icon': 'size-10 shrink-0 rounded-full',
       },
     },
     defaultVariants: {
       variant: 'default',
       size: 'default',
+      align: 'left',
     },
   },
 )
