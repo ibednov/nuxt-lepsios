@@ -3,7 +3,7 @@
         <div v-if="$slots.left">
             <slot name="left" />
         </div>
-        <div class="text-2xl font-semibold flex items-center gap-2">
+        <div class="text-2xl font-semibold flex items-center gap-2 h-full">
             <slot />
         </div>
         <div
