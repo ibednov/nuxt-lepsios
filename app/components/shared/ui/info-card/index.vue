@@ -14,7 +14,7 @@ const props = defineProps<ComponentProps>()
 <template>
     <article
         :class="cn(
-            'flex max-w-[180px] shrink-0 flex-col gap-1 rounded-2xl bg-lepsios-background p-3',
+            'flex max-w-45 min-w-35 shrink-0 flex-col gap-1 rounded-2xl bg-lepsios-background p-3',
             props.class,
         )"
     >
