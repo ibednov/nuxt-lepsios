@@ -12,6 +12,7 @@ const modelValue = defineModel<boolean>({ default: false })
     <div
         class="flex items-center justify-between gap-3 px-4 py-4"
         :class="{ 'opacity-50': disabled }"
+        @click="modelValue = !modelValue"
     >
         <div class="flex min-w-0 items-center gap-3">
             <slot name="icon" />
@@ -30,6 +31,7 @@ const modelValue = defineModel<boolean>({ default: false })
         <Switch
             v-model="modelValue"
             :disabled="disabled"
+            @click.stop
         />
     </div>
 </template>
