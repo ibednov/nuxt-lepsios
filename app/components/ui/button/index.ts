@@ -22,17 +22,17 @@ export const buttonVariants = cva(
         soft: 'bg-lepsios-field text-accent-foreground hover:bg-lepsios-field/80',
         badge: 'bg-lepsios-surface/80 text-accent-foreground font-medium shadow-none hover:bg-lepsios-surface',
       },
-      align: {
-        left: 'justify-start',
-        center: 'justify-center',
-        right: 'justify-end',
+      textAlign: {
+        left: 'justify-start text-left',
+        center: 'justify-center text-center',
+        right: 'justify-end text-right',
       },
       size: {
         'default': 'h-9 px-5 py-2 has-[>svg]:px-3',
         'sm': 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
         'lg': 'h-10 rounded-md px-6 has-[>svg]:px-4',
         'full': 'w-full h-full',
-        'base': 'h-14 rounded-2xl px-4 py-2',
+        'base': 'h-14 rounded-2xl px-4 py-2 w-full',
         'big': 'h-14 w-full rounded-full',
         'icon': 'size-9',
         'pill': 'h-auto rounded-full px-4 py-2 text-sm font-normal',
@@ -43,7 +43,7 @@ export const buttonVariants = cva(
     defaultVariants: {
       variant: 'default',
       size: 'default',
-      align: 'left',
+      textAlign: 'left',
     },
   },
 )

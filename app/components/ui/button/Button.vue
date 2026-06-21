@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
-import { Primitive, type PrimitiveProps } from 'reka-ui'
+import type { ButtonVariants } from '.'
+import { Primitive } from 'reka-ui'
 import { cn } from '~/lib/utils'
-import { type ButtonVariants, buttonVariants } from '.'
+import { buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
+  textAlign?: ButtonVariants['align']
   variant?: ButtonVariants['variant']
   size?: ButtonVariants['size']
   class?: HTMLAttributes['class']
@@ -12,6 +15,7 @@ interface Props extends PrimitiveProps {
 
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',
+  textAlign: 'left',
 })
 </script>
 
@@ -20,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
         data-slot="button"
         :as="as"
         :as-child="asChild"
-        :class="cn(buttonVariants({ variant, size }), props.class)"
+        :class="cn(buttonVariants({ variant, size, textAlign }), props.class)"
     >
         <slot />
     </Primitive>
