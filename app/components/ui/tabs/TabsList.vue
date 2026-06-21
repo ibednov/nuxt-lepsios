@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { TabsList, type TabsListProps } from 'reka-ui'
-import { computed, type HTMLAttributes, nextTick, onMounted, onUnmounted } from 'vue'
+import type { VariantProps } from 'class-variance-authority'
+import type { TabsListProps } from 'reka-ui'
+import type { HTMLAttributes } from 'vue'
+import { TabsList } from 'reka-ui'
+import { nextTick, onMounted, onUnmounted, provide } from 'vue'
+import { tabsListVariants } from '~/components/ui/tabs/variants'
 import { cn } from '~/lib/utils'
 
-const props = defineProps<TabsListProps & { class?: HTMLAttributes['class'] }>()
+type TabsListVariants = VariantProps<typeof tabsListVariants>
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
+const props = defineProps<TabsListProps & {
+  class?: HTMLAttributes['class']
+  variant?: TabsListVariants['variant']
+}>()
 
-  return delegated
+provide<TabsListVariants>('tabsList', {
+  variant: props.variant,
 })
+
+const delegatedProps = reactiveOmit(props, 'class', 'variant')
 
 const containerRef = ref<HTMLElement | null>(null)
 
@@ -25,7 +34,6 @@ function scrollToActiveTab() {
   })
 }
 
-// Отслеживаем изменения активной вкладки через MutationObserver
 onMounted(() => {
   if (!containerRef.value)
     return
@@ -44,7 +52,6 @@ onMounted(() => {
     observer.disconnect()
   })
 
-  // Прокручиваем при первой загрузке, если есть активная вкладка
   scrollToActiveTab()
 })
 </script>
@@ -56,11 +63,9 @@ onMounted(() => {
     >
         <TabsList
             data-slot="tabs-list"
+            :data-variant="variant"
             v-bind="delegatedProps"
-            :class="cn(
-                'bg-muted text-muted-foreground min-w-fit inline-flex h-9 w-full items-center justify-start rounded-lg p-[3px]',
-                props.class,
-            )"
+            :class="cn(tabsListVariants({ variant }), props.class)"
         >
             <slot />
         </TabsList>
