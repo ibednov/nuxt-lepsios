@@ -21,6 +21,7 @@ export const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         soft: 'bg-lepsios-field text-accent-foreground hover:bg-lepsios-field/80',
         badge: 'bg-lepsios-surface/80 text-accent-foreground font-medium shadow-none hover:bg-lepsios-surface',
+        accent: 'bg-brand text-brand-foreground shadow-xs hover:bg-brand/90',
       },
       textAlign: {
         left: 'justify-start text-left',

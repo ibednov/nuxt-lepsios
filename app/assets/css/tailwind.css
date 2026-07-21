@@ -58,6 +58,9 @@
   --color-lepsios-field: var(--lepsios-field);
 
   --color-tertiary: var(--tertiary);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
 }
 
 :root {
@@ -112,6 +115,9 @@
   --lepsios-field: #4E4E4E;
 
   --tertiary: #BBBBBB;
+
+  --brand: #3b82f6;
+  --brand-foreground: #ffffff;
 }
 
 .dark {
@@ -159,6 +165,9 @@
   --lepsios-field: #4E4E4E;
 
   --tertiary: #BBBBBB;
+
+  --brand: #60a5fa;
+  --brand-foreground: #09090b;
 }
 
 @layer base {
