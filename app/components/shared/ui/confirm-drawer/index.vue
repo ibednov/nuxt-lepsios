@@ -40,6 +40,7 @@ const handleConfirm = (close: () => void) => {
                 <Button
                     :variant="confirmVariant"
                     size="big"
+                    text-align="center"
                     class="w-full"
                     @click="handleConfirm(close)"
                 >
