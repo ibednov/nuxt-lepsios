@@ -64,11 +64,11 @@
 }
 
 :root {
-  --background: #F5F4F9;
+  --background: #F2F2F2;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: #FFFFFF;
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: #FFFFFF;
   --popover-foreground: oklch(0.145 0 0);
   --primary: rgba(16, 14, 14, 1);
   --primary-foreground: oklch(0.985 0 0);
@@ -81,9 +81,9 @@
   --success: oklch(0.627 0.216 142.496);
   --success-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --input: #E8E8E8;
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -110,11 +110,11 @@
   --lepsios-four: #EFE2DB;
   --lepsios-five: #C9E0DD;
 
-  --lepsios-background: #272727;
-  --lepsios-surface: #3B3B3B;
-  --lepsios-field: #4E4E4E;
+  --lepsios-background: #FFFFFF;
+  --lepsios-surface: #F4F4F4;
+  --lepsios-field: #E8E8E8;
 
-  --tertiary: #BBBBBB;
+  --tertiary: #6B6B6B;
 
   --brand: #3b82f6;
   --brand-foreground: #ffffff;

@@ -109,7 +109,7 @@ const drawerFullscreenClass = [
                     <DrawerClose as-child>
                         <button
                             type="button"
-                            class="pointer-events-auto flex size-7 items-center justify-center rounded-full bg-lepsios-field text-white"
+                            class="pointer-events-auto flex size-7 items-center justify-center rounded-full bg-lepsios-field text-foreground"
                             aria-label="Close"
                         >
                             <Icon
