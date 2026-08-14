@@ -10,7 +10,7 @@ export interface NotifyOptions {
 }
 
 export interface NotifyFromApiErrorOptions {
-  /** Когда у объекта ошибки нет непустого message */
+  /** Когда в теле ответа API нет поля message */
   fallback?: string
   titleWithDescription?: { title: string, description: string }
   statusMessages?: Record<number, string>

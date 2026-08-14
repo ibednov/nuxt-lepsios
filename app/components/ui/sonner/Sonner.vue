@@ -13,13 +13,16 @@ const customToastOptions: ToasterProps['toastOptions'] = {
 </script>
 
 <template>
-    <Sonner
-        class="toaster group"
-        v-bind="props"
-        :toast-options="customToastOptions"
-        :style="{
-            '--normal-bg': 'var(--popover)',
-            '--normal-text': 'var(--popover-foreground)',
-        }"
-    />
+    <Teleport to="body">
+        <Sonner
+            class="toaster group z-[10000]"
+            v-bind="props"
+            :toast-options="customToastOptions"
+            :style="{
+                '--normal-bg': 'var(--popover)',
+                '--normal-text': 'var(--popover-foreground)',
+                zIndex: 10000,
+            }"
+        />
+    </Teleport>
 </template>

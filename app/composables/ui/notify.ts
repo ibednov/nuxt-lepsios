@@ -1,6 +1,39 @@
 import type { NotifyFromApiErrorOptions, NotifyOptions } from '~/interfaces/composables/notify'
 import { toast } from 'vue-sonner'
 
+const OFETCH_HTTP_MESSAGE = /^\[[A-Z]+\]\s+"/
+
+const isUsableMessage = (value: unknown): value is string =>
+  typeof value === 'string' && value.trim().length > 0 && !OFETCH_HTTP_MESSAGE.test(value.trim())
+
+const readPayloadMessage = (payload: unknown): string | undefined => {
+  if (!payload || typeof payload !== 'object') {
+    return undefined
+  }
+
+  const message = (payload as { message?: unknown }).message
+  return isUsableMessage(message) ? message.trim() : undefined
+}
+
+const resolveApiErrorMessage = (err: unknown): string | undefined => {
+  if (!err || typeof err !== 'object') {
+    return undefined
+  }
+
+  const anyError = err as {
+    data?: unknown
+    message?: unknown
+    response?: { _data?: unknown, data?: unknown }
+  }
+
+  return (
+    readPayloadMessage(anyError.data)
+    ?? readPayloadMessage(anyError.response?._data)
+    ?? readPayloadMessage(anyError.response?.data)
+    ?? (isUsableMessage(anyError.message) ? anyError.message.trim() : undefined)
+  )
+}
+
 export const useNotify = () => {
   const base = (
     type: 'default' | 'success' | 'error' | 'info' | 'warning',
@@ -53,11 +86,11 @@ export const useNotify = () => {
     base('warning', title, options)
 
   const fromApiError = (err: unknown, options?: NotifyFromApiErrorOptions) => {
-    const anyError = err as any
-    const backendMessage: string | undefined = anyError?.message
-    const statusCode: number | undefined = anyError?.statusCode ?? anyError?.status
+    const anyError = err as { statusCode?: number, status?: number }
+    const backendMessage = resolveApiErrorMessage(err)
+    const statusCode = anyError?.statusCode ?? anyError?.status
 
-    if (backendMessage && backendMessage.trim()) {
+    if (backendMessage) {
       return error(backendMessage)
     }
 
