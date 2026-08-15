@@ -1,18 +1,44 @@
 <script setup lang="ts">
-defineProps<{
+import type { HTMLAttributes } from 'vue'
+import { cn } from '~/lib/utils'
+
+interface Props {
   title: string
   hint?: string
   disabled?: boolean
-}>()
+  class?: HTMLAttributes['class']
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
+})
 
 const modelValue = defineModel<boolean>({ default: false })
+
+const handleRowClick = () => {
+  if (props.disabled) {
+    return
+  }
+  modelValue.value = !modelValue.value
+}
 </script>
 
 <template>
     <div
-        class="flex items-center justify-between gap-3 px-4 py-4"
-        :class="{ 'opacity-50': disabled }"
-        @click="modelValue = !modelValue"
+        role="switch"
+        tabindex="0"
+        :aria-checked="modelValue"
+        :aria-disabled="disabled"
+        :class="cn(
+            'flex items-center justify-between gap-3 px-4 py-4 select-none',
+            disabled
+                ? 'cursor-not-allowed opacity-50'
+                : 'cursor-pointer',
+            props.class,
+        )"
+        @click="handleRowClick"
+        @keydown.enter.prevent="handleRowClick"
+        @keydown.space.prevent="handleRowClick"
     >
         <div class="flex min-w-0 items-center gap-3">
             <slot name="icon" />
@@ -29,9 +55,10 @@ const modelValue = defineModel<boolean>({ default: false })
             </div>
         </div>
         <Switch
-            v-model="modelValue"
+            :model-value="modelValue"
             :disabled="disabled"
-            @click.stop
+            tabindex="-1"
+            class="pointer-events-none"
         />
     </div>
 </template>
