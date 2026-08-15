@@ -73,7 +73,7 @@ const data = defineModel<FieldDataInterface>()
                     </template>
 
                     <div
-                        class="flex gap-2"
+                        class="flex items-center gap-2"
                         :class="[
                             Number(itemIndex) === items.length - 1 ? 'justify-between' : 'justify-end',
                         ]"
@@ -83,7 +83,6 @@ const data = defineModel<FieldDataInterface>()
                             variant="soft"
                             size="pill"
                             type="button"
-                            class="self-start"
                             @click="$emit('add-item')"
                         >
                             {{ data?.addButtonText || 'Добавить' }}
@@ -92,6 +91,7 @@ const data = defineModel<FieldDataInterface>()
                         <Button
                             variant="soft"
                             size="pill-icon"
+                            text-align="center"
                             type="button"
                             class="text-muted-foreground"
                             @click="$emit('remove-item', Number(itemIndex))"

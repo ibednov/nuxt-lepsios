@@ -38,7 +38,7 @@ export const buttonVariants = cva(
         'icon': 'size-9 p-0',
         'empty': 'h-auto px-0 py-0',
         'pill': 'h-auto rounded-full px-4 py-2 text-sm font-normal',
-        'pill-icon': 'size-10 shrink-0 rounded-full',
+        'pill-icon': 'size-10 shrink-0 rounded-full p-0 justify-center',
         'badge': 'h-9 w-fit min-h-9 shrink-0 rounded-full px-4 pt-2 pb-[9px] text-xs font-medium gap-0.5',
       },
     },
