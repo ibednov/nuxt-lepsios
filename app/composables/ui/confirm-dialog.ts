@@ -3,57 +3,58 @@ const globalState = {
   isOpen: ref(false),
   title: ref(''),
   description: ref<string | undefined>(undefined),
+  variant: ref<'default' | 'destructive'>('default'),
   resolveRef: ref<((value: boolean) => void) | null>(null),
 }
 
+export type ConfirmDialogVariant = 'default' | 'destructive'
+
 export const useConfirmDialog = () => {
-  const confirm = (confirmTitle: string, confirmDescription?: string): Promise<boolean> => new Promise((resolve) => {
-    // Сначала устанавливаем title и description
+  const confirm = (
+    confirmTitle: string,
+    confirmDescription?: string,
+    variant: ConfirmDialogVariant = 'default',
+  ): Promise<boolean> => new Promise((resolve) => {
     globalState.title.value = confirmTitle
     globalState.description.value = confirmDescription
+    globalState.variant.value = variant
     globalState.resolveRef.value = resolve
-    // Затем в nextTick устанавливаем isOpen, чтобы Vue успел обновить DOM
     nextTick(() => {
       globalState.isOpen.value = true
     })
   })
 
+  const resetCopy = () => {
+    globalState.title.value = ''
+    globalState.description.value = undefined
+    globalState.variant.value = 'default'
+  }
+
   const handleConfirm = () => {
     const resolve = globalState.resolveRef.value
-    // Резолвим Promise
     if (resolve) {
       resolve(true)
       globalState.resolveRef.value = null
     }
-    // Закрываем диалог - это вызовет реактивное обновление
     globalState.isOpen.value = false
-    // Очищаем состояние после небольшой задержки для завершения анимации
-    setTimeout(() => {
-      globalState.title.value = ''
-      globalState.description.value = undefined
-    }, 300)
+    setTimeout(resetCopy, 300)
   }
 
   const handleCancel = () => {
     const resolve = globalState.resolveRef.value
-    // Резолвим Promise
     if (resolve) {
       resolve(false)
       globalState.resolveRef.value = null
     }
-    // Закрываем диалог - это вызовет реактивное обновление
     globalState.isOpen.value = false
-    // Очищаем состояние после небольшой задержки для завершения анимации
-    setTimeout(() => {
-      globalState.title.value = ''
-      globalState.description.value = undefined
-    }, 300)
+    setTimeout(resetCopy, 300)
   }
 
   return {
     isOpen: globalState.isOpen,
     title: globalState.title,
     description: globalState.description,
+    variant: globalState.variant,
     confirm,
     handleConfirm,
     handleCancel,
