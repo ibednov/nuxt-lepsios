@@ -1,5 +1,5 @@
-export const formatPrice = (price: number | null) => {
-  if (!price) {
+export const formatPrice = (price: number | null | undefined) => {
+  if (price == null || Number.isNaN(price)) {
     return null
   }
 
