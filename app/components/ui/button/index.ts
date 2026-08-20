@@ -35,13 +35,23 @@ export const buttonVariants = cva(
         'full': 'w-full h-full',
         'base': 'h-14 rounded-2xl px-4 py-2 w-full',
         'big': 'h-14 w-full rounded-full',
-        'icon': 'size-9 p-0',
+        'icon': 'size-9 p-0 justify-center',
         'empty': 'h-auto px-0 py-0',
         'pill': 'h-auto rounded-full px-4 py-2 text-sm font-normal',
         'pill-icon': 'size-10 shrink-0 rounded-full p-0 justify-center',
         'badge': 'h-9 w-fit min-h-9 shrink-0 rounded-full px-4 pt-2 pb-[9px] text-xs font-medium gap-0.5',
       },
     },
+    compoundVariants: [
+      {
+        size: 'icon',
+        class: 'justify-center text-center',
+      },
+      {
+        size: 'pill-icon',
+        class: 'justify-center text-center',
+      },
+    ],
     defaultVariants: {
       variant: 'default',
       size: 'default',
