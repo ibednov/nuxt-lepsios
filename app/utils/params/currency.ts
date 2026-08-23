@@ -50,8 +50,39 @@ export const CURRENCY_FIELD_OPTIONS: FieldOption[] = currencies.map(currency => 
   value: currency.value,
 }))
 
-export const findCurrencyOption = (code: string | null | undefined) =>
-  CURRENCY_FIELD_OPTIONS.find(option => option.value === code)
+export const findCurrencyOption = (code: string | null | undefined) => {
+  const current = String(code ?? '').trim().toUpperCase()
+  if (!current) {
+    return undefined
+  }
+  return CURRENCY_FIELD_OPTIONS.find(option => String(option.value) === current)
+}
 
 export const findCurrencyIcon = (code: string | null | undefined) =>
-  currencies.find(currency => currency.value === code)?.icon
+  findCurrencyOption(code)?.icon
+
+export const visibleCurrencyOption = (
+  code: string | null | undefined,
+  options: FieldOption[] = CURRENCY_FIELD_OPTIONS,
+): FieldOption => {
+  const current = String(code ?? '').trim().toUpperCase()
+  if (!current) {
+    return findCurrencyOption(DEFAULT_CURRENCY)
+      ?? { label: DEFAULT_CURRENCY, value: DEFAULT_CURRENCY }
+  }
+  return options.find(option => String(option.value) === current)
+    ?? findCurrencyOption(current)
+    ?? { label: current, value: current }
+}
+
+export const currencySelectOptions = (
+  code: string | null | undefined,
+  options: FieldOption[] = CURRENCY_FIELD_OPTIONS,
+): FieldOption[] => {
+  const list = [...options]
+  const current = String(code ?? '').trim().toUpperCase()
+  if (current && !list.some(option => String(option.value) === current)) {
+    list.push(visibleCurrencyOption(current, options))
+  }
+  return list
+}
