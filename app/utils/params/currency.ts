@@ -1,9 +1,11 @@
 import type { FieldOption } from '~/interfaces/common/field'
 
 export enum CurrencyEnum {
+  BYN = 'BYN',
   RUB = 'RUB',
   USD = 'USD',
   EUR = 'EUR',
+  CNY = 'CNY',
 }
 
 export const DEFAULT_CURRENCY = CurrencyEnum.USD
@@ -15,6 +17,11 @@ interface Currency {
 }
 
 const currencies: Currency[] = [
+  {
+    code: CurrencyEnum.BYN,
+    icon: 'lucide:banknote',
+    value: CurrencyEnum.BYN,
+  },
   {
     code: CurrencyEnum.RUB,
     icon: 'f7:money-rubl',
@@ -29,6 +36,11 @@ const currencies: Currency[] = [
     code: CurrencyEnum.EUR,
     icon: 'f7:money-euro',
     value: CurrencyEnum.EUR,
+  },
+  {
+    code: CurrencyEnum.CNY,
+    icon: 'f7:money-yen',
+    value: CurrencyEnum.CNY,
   },
 ]
 

@@ -72,8 +72,11 @@ const handleInput = (val: string | number) => {
                 align="inline-end"
                 class="px-0"
             >
-                <Select v-model="currencyValue">
-                    <SelectTrigger class="h-9 min-w-22 border-0 bg-transparent shadow-none focus:ring-0">
+                <Select
+                    v-model="currencyValue"
+                    :modal="false"
+                >
+                    <SelectTrigger class="h-9 min-w-22 cursor-pointer border-0 bg-transparent shadow-none focus:ring-0">
                         <SelectValue>
                             <div
                                 v-if="selectedCurrency"
@@ -94,8 +97,8 @@ const handleInput = (val: string | number) => {
                         <SelectGroup>
                             <SelectItem
                                 v-for="option in props.options"
-                                :key="option.value"
-                                :value="option.value"
+                                :key="String(option.value)"
+                                :value="String(option.value)"
                             >
                                 <div class="flex items-center gap-2">
                                     <Icon
