@@ -42,27 +42,14 @@ const handleInput = (value: string | number) => {
     return
   }
 
-  // 1. Пробуем найти ссылку внутри текста (например, "привет вот ссылка https://...")
   const foundUrl = extractUrl(rawString)
+  const typedURL = rawString.replace(/「[^」]{0,200}」/g, '').trim()
 
-  if (foundUrl && foundUrl !== rawString) {
+  if (foundUrl && foundUrl !== rawString && foundUrl !== typedURL) {
     info(t('ui.input.link.trimmed_to_url'))
   }
 
-  let cleanUrl: string
-
-  if (foundUrl) {
-    // Если ссылка найдена, используем её
-    cleanUrl = foundUrl
-  }
-  else {
-    // Если ссылки нет, считаем, что пользователь вводит домен вручную
-    // Убираем возможный мусор, оставляем только то, что похоже на домен/путь
-    // (тут можно добавить дополнительную валидацию, если нужно)
-    cleanUrl = rawString
-  }
-
-  // Нормализация: убираем текущий протокол, чтобы не было двойного https://https://...
+  const cleanUrl = foundUrl || typedURL
   const withoutProtocol = cleanUrl.replace(/^https?:\/\//i, '').trim()
 
   if (!withoutProtocol) {
@@ -70,8 +57,7 @@ const handleInput = (value: string | number) => {
     return
   }
 
-  // Всегда сохраняем с https://
-  modelValue.value = `https://${withoutProtocol}`
+  modelValue.value = withShareProductTitle(`https://${withoutProtocol}`, rawString)
 }
 </script>
 
