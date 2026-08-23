@@ -52,10 +52,10 @@ export const extractUrl = (text: string): string | null => {
     return null
   }
 
-  const urlRegex = /(https?:\/\/\S+)/i
+  const urlRegex = /https?:\/\/[^\s<>"'，。、【】「」]+/i
   const match = text.match(urlRegex)
 
-  return match ? match[0] : null
+  return match ? match[0].replace(/[.,;:)）]+$/g, '') : null
 }
 
 export const isMoreThanCharacters = (text: string | null, length: number): boolean => {
