@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FieldOption } from '~/interfaces/common/field'
-import { CURRENCY_FIELD_OPTIONS, DEFAULT_CURRENCY, findCurrencyOption } from '~/utils/params/currency'
+import { CURRENCY_FIELD_OPTIONS, currencySelectOptions, DEFAULT_CURRENCY, visibleCurrencyOption } from '~/utils/params/currency'
 
 interface Props {
   placeholder?: string
@@ -22,16 +22,18 @@ const currency = defineModel<string | null>('currency', { default: DEFAULT_CURRE
 const priceError = ref<string | null>(null)
 
 const currencyValue = computed({
-  get: () => currency.value ?? DEFAULT_CURRENCY,
+  get: () => currency.value || DEFAULT_CURRENCY,
   set: (value: string) => {
+    if (!value) {
+      return
+    }
     currency.value = value
   },
 })
 
-const selectedCurrency = computed(() => {
-  return props.options.find(option => option.value === currencyValue.value)
-    ?? findCurrencyOption(DEFAULT_CURRENCY)
-})
+const currencyOptions = computed(() => currencySelectOptions(currencyValue.value, props.options))
+
+const selectedCurrency = computed(() => visibleCurrencyOption(currencyValue.value, currencyOptions.value))
 
 watch(() => modelValue.value, () => {
   priceError.value = null
@@ -96,7 +98,7 @@ const handleInput = (val: string | number) => {
                     <SelectContent>
                         <SelectGroup>
                             <SelectItem
-                                v-for="option in props.options"
+                                v-for="option in currencyOptions"
                                 :key="String(option.value)"
                                 :value="String(option.value)"
                             >
