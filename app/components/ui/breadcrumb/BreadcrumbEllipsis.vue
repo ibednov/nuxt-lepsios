@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { MoreHorizontal } from 'lucide-vue-next'
 import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'
 
@@ -8,7 +7,6 @@ const props = defineProps<{
 }>()
 
 const ellipsisClass = computed(() => cn('flex size-9 items-center justify-center', props.class))
-const EllipsisIcon = MoreHorizontal
 </script>
 
 <template>
@@ -19,7 +17,7 @@ const EllipsisIcon = MoreHorizontal
         :class="ellipsisClass"
     >
         <slot>
-            <EllipsisIcon class="size-4" />
+            <Icon name="lucide:more-horizontal" class="size-4" />
         </slot>
         <span class="sr-only">More</span>
     </span>

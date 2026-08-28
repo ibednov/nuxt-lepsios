@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Circle } from 'lucide-vue-next'
 import { ContextMenuItemIndicator, ContextMenuRadioItem, type ContextMenuRadioItemEmits, type ContextMenuRadioItemProps, useForwardPropsEmits } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
 
@@ -25,7 +24,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     >
         <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
             <ContextMenuItemIndicator>
-                <Circle class="h-4 w-4 fill-current" />
+                <Icon name="lucide:circle" class="h-4 w-4 fill-current" />
             </ContextMenuItemIndicator>
         </span>
         <slot />

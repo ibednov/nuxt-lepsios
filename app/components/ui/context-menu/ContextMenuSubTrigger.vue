@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ChevronRight } from 'lucide-vue-next'
 import { ContextMenuSubTrigger, type ContextMenuSubTriggerProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
 
@@ -24,6 +23,6 @@ const forwardedProps = useForwardProps(delegatedProps)
         )"
     >
         <slot />
-        <ChevronRight class="ml-auto h-4 w-4" />
+        <Icon name="lucide:chevron-right" class="ml-auto h-4 w-4" />
     </ContextMenuSubTrigger>
 </template>

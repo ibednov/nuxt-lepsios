@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Check } from 'lucide-vue-next'
 import type { RadioGroupItemProps } from 'reka-ui'
 import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
@@ -27,7 +26,7 @@ const forwardedProps = useForwardProps(delegatedProps)
         "
     >
         <RadioGroupIndicator class="flex items-center justify-center">
-            <Check class="h-3.5 w-3.5 text-primary" />
+            <Icon name="lucide:check" class="h-3.5 w-3.5 text-primary" />
         </RadioGroupIndicator>
     </RadioGroupItem>
 </template>
