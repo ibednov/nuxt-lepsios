@@ -1,3 +1,8 @@
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const currentDir = dirname(fileURLToPath(import.meta.url))
+
 export default defineNuxtConfig({
   $meta: { name: 'lepsios' },
 
@@ -10,7 +15,7 @@ export default defineNuxtConfig({
   ],
 
   css: [
-    '~/assets/css/term.css',
+    join(currentDir, './app/assets/css/term.css'),
   ],
 
   colorMode: {
