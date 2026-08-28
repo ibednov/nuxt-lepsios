@@ -10,6 +10,12 @@
       "close": "Close",
       "copy_success": "Successfully copied",
       "copy_error": "Error copying"
+    },
+    "term": {
+      "close": "Close",
+      "min": "Minimize",
+      "max": "Zoom",
+      "restore": "Restore"
     }
   },
   "shared": {

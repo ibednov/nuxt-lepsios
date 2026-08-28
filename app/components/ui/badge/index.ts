@@ -15,6 +15,7 @@ export const badgeVariants = cva(
         destructive:
           'border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80',
         outline: 'text-foreground',
+        term: 'rounded-none border-[color:color-mix(in_srgb,var(--lepsios-term-accent)_35%,transparent)] bg-transparent font-medium tracking-[0.12em] uppercase text-[11px] text-[color:color-mix(in_srgb,var(--lepsios-term-accent)_85%,white)]',
       },
     },
     defaultVariants: {

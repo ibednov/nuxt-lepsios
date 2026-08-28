@@ -118,6 +118,10 @@
 
   --brand: #3b82f6;
   --brand-foreground: #ffffff;
+
+  --lepsios-term-accent: #2f6a14;
+  --lepsios-term-window: #f4f2ea;
+  --lepsios-term-chrome: #e7e4db;
 }
 
 .dark {
@@ -168,6 +172,10 @@
 
   --brand: #60a5fa;
   --brand-foreground: #09090b;
+
+  --lepsios-term-accent: #b8ff3c;
+  --lepsios-term-window: #0c0c0c;
+  --lepsios-term-chrome: rgb(0 0 0 / 0.4);
 }
 
 @layer base {

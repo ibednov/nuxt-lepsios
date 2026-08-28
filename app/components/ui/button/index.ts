@@ -22,6 +22,8 @@ export const buttonVariants = cva(
         soft: 'bg-lepsios-field text-accent-foreground hover:bg-lepsios-field/80',
         badge: 'bg-lepsios-surface/80 text-accent-foreground font-medium shadow-none hover:bg-lepsios-surface',
         accent: 'bg-brand text-brand-foreground shadow-xs hover:bg-brand/90',
+        term: 'rounded-none border font-medium tracking-[0.18em] uppercase text-[11px] border-[color:color-mix(in_srgb,var(--lepsios-term-accent)_55%,transparent)] bg-transparent text-foreground shadow-[0_0_18px_color-mix(in_srgb,var(--lepsios-term-accent)_12%,transparent)] hover:bg-[var(--lepsios-term-accent)] hover:text-[var(--lepsios-term-window)]',
+        'term-chip': 'shrink-0 rounded-none border font-normal tracking-[0.12em] uppercase text-[11px] border-[color:color-mix(in_srgb,var(--lepsios-term-accent)_35%,transparent)] bg-transparent text-[color:color-mix(in_srgb,var(--lepsios-term-accent)_85%,white)] data-[active=true]:bg-[var(--lepsios-term-accent)] data-[active=true]:text-[var(--lepsios-term-window)]',
       },
       textAlign: {
         left: 'justify-start text-left',

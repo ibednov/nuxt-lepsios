@@ -16,6 +16,13 @@ const open = ref(false)
       <Button variant="destructive">
         Destructive
       </Button>
+      <Button variant="term">
+        Term
+      </Button>
+      <Button variant="term-chip" data-active="true">
+        chip
+      </Button>
+      <Badge variant="term">term</Badge>
     </section>
 
     <section class="max-w-sm">

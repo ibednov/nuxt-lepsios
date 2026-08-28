@@ -10,6 +10,8 @@ export const toggleVariants = cva(
         default: 'bg-transparent',
         outline:
           'border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground',
+        pill: 'rounded-full bg-transparent',
+        term: 'rounded-none border border-[color:color-mix(in_srgb,var(--lepsios-term-accent)_35%,transparent)] bg-transparent data-[state=on]:bg-[var(--lepsios-term-accent)] data-[state=on]:text-[var(--lepsios-term-window)]',
       },
       size: {
         default: 'h-9 px-2 min-w-9',

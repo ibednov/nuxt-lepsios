@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
 
+  css: [
+    '~/assets/css/term.css',
+  ],
+
   colorMode: {
     classSuffix: '',
     fallback: 'dark',
