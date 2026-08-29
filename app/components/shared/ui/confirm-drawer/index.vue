@@ -10,28 +10,40 @@ interface Props {
   drawerHideFooter?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   confirmVariant: 'default',
   drawerHideFooter: true,
 })
 
 const emit = defineEmits<{
   confirm: []
+  cancel: []
 }>()
+
+const isOpen = defineModel<boolean>('open', { default: false })
 
 const handleConfirm = (close: () => void) => {
   close()
   emit('confirm')
 }
+
+const handleCancel = (close: () => void) => {
+  close()
+  emit('cancel')
+}
 </script>
 
 <template>
     <container-modal-drawer
+        v-model:open="isOpen"
         :title="title"
         :description="description"
         :drawer-hide-footer="drawerHideFooter"
     >
-        <template #trigger>
+        <template
+            v-if="$slots.trigger"
+            #trigger
+        >
             <slot name="trigger" />
         </template>
 
@@ -50,7 +62,7 @@ const handleConfirm = (close: () => void) => {
                 <button
                     type="button"
                     class="py-2 text-center text-base"
-                    @click="close"
+                    @click="handleCancel(close)"
                 >
                     {{ cancelText }}
                 </button>
