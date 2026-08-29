@@ -11,8 +11,16 @@
             class="min-w-0"
         />
 
-        <div class="flex h-full min-w-0 items-center justify-center gap-2 text-center text-2xl font-semibold">
-            <slot />
+        <div class="flex h-full min-w-0 flex-col items-center justify-center text-center">
+            <div class="flex min-w-0 items-center justify-center gap-2 text-2xl font-semibold">
+                <slot />
+            </div>
+            <div
+                v-if="$slots.subtitle"
+                class="min-w-0 truncate text-sm font-normal text-muted-foreground"
+            >
+                <slot name="subtitle" />
+            </div>
         </div>
 
         <div

@@ -5,6 +5,12 @@
                 <slot name="header-left" />
             </template>
             <slot name="header" />
+            <template
+                v-if="$slots.subtitle"
+                #subtitle
+            >
+                <slot name="subtitle" />
+            </template>
             <template #right>
                 <slot name="header-right" />
             </template>
