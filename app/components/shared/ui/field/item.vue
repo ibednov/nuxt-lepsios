@@ -227,6 +227,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 :model-value="data.value"
                 :placeholder="data.placeholder"
                 :class="data.class"
+                :test-id="data.testId"
                 @update:model-value="emitUpdate"
             />
             <shared-ui-field-input-otp
@@ -237,6 +238,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 :placeholder="data.placeholder"
                 :class="data.class"
                 :has-error="!!data.error"
+                :test-id="data.testId"
                 @update:model-value="(val: string[] | null) => { emitUpdate(val); emit('update:error', null) }"
                 @complete="emit('complete')"
             />
