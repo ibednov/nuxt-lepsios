@@ -140,6 +140,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
             :maxlength="data.maxLength"
             :input-class="data.class"
             :disabled="data.disabled"
+            :test-id="data.testId"
             @update:model-value="emitUpdate"
         />
 
@@ -210,6 +211,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 :placeholder="data.placeholder"
                 :maxlength="data.maxLength"
                 :input-class="data.class"
+                :test-id="data.testId"
                 @update:model-value="emitUpdate"
             />
             <shared-ui-field-input-link

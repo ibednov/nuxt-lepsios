@@ -39,6 +39,8 @@ export interface FieldInterface {
   iconSrc?: string
   submit?: boolean
   defaultItem?: Record<string, any>
+  /** Optional Playwright / testing hook forwarded to the native input. */
+  testId?: string
 }
 
 export interface FieldDataInterface extends FieldInterface {
