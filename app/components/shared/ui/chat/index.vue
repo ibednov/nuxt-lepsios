@@ -21,7 +21,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-    <div class="flex h-dvh flex-col bg-background text-foreground">
+    <div class="flex h-full min-h-0 flex-col bg-background text-foreground">
         <header class="flex items-center gap-2 border-b border-border px-3 py-2">
             <Button
                 variant="ghost"
