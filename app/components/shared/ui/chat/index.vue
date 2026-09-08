@@ -61,7 +61,7 @@ const emit = defineEmits<{
             </Button>
         </header>
 
-        <div class="flex flex-1 flex-col overflow-y-auto">
+        <div class="flex min-h-0 flex-1 flex-col">
             <slot>
                 <div class="flex flex-1 flex-col items-center justify-center gap-3 px-6 text-center">
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-lepsios-field">
