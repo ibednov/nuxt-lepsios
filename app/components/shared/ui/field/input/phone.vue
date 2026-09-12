@@ -5,12 +5,14 @@ interface Props {
   placeholder?: string
   id?: string
   class?: string
+  testId?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   placeholder: '',
   id: 'phone-input',
   class: '',
+  testId: undefined,
 })
 
 const modelValue = defineModel<string | null>('modelValue', { default: null })
@@ -28,18 +30,20 @@ const favoritesCountries = ['by', 'ru']
 </script>
 
 <template>
-    <PhoneSelect
-        :id="props.id"
-        v-model="modelValue"
-        :lang="phoneLang"
-        :favorites-countries="favoritesCountries"
-        :enable-mask="true"
-        :enable-search="true"
-        :hide-favorites="false"
-        :disable-country-name-select="true"
-        :disable-auto-parse-number="true"
-        select-content-class="max-h-[min(60dvh,24rem)] overflow-y-auto"
-        :input-class="props.class"
-        :input-placeholder="props.placeholder"
-    />
+    <div :data-testid="props.testId">
+        <PhoneSelect
+            :id="props.id"
+            v-model="modelValue"
+            :lang="phoneLang"
+            :favorites-countries="favoritesCountries"
+            :enable-mask="true"
+            :enable-search="true"
+            :hide-favorites="false"
+            :disable-country-name-select="true"
+            :disable-auto-parse-number="true"
+            select-content-class="max-h-[min(60dvh,24rem)] overflow-y-auto"
+            :input-class="props.class"
+            :input-placeholder="props.placeholder"
+        />
+    </div>
 </template>

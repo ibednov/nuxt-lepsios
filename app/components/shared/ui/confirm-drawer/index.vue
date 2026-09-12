@@ -8,11 +8,15 @@ interface Props {
   cancelText: string
   confirmVariant?: ButtonVariants['variant']
   drawerHideFooter?: boolean
+  confirmTestId?: string
+  cancelTestId?: string
 }
 
 withDefaults(defineProps<Props>(), {
   confirmVariant: 'default',
   drawerHideFooter: true,
+  confirmTestId: undefined,
+  cancelTestId: undefined,
 })
 
 const emit = defineEmits<{
@@ -54,6 +58,7 @@ const handleCancel = (close: () => void) => {
                     size="big"
                     text-align="center"
                     class="w-full"
+                    :data-testid="confirmTestId"
                     @click="handleConfirm(close)"
                 >
                     {{ confirmText }}
@@ -62,6 +67,7 @@ const handleCancel = (close: () => void) => {
                 <button
                     type="button"
                     class="py-2 text-center text-base"
+                    :data-testid="cancelTestId"
                     @click="handleCancel(close)"
                 >
                     {{ cancelText }}

@@ -7,6 +7,7 @@ interface Props {
   class?: string
   placeholder?: string
   hasError?: boolean
+  testId?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -15,6 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
   class: '',
   placeholder: '○',
   hasError: false,
+  testId: undefined,
 })
 
 const emit = defineEmits<{
@@ -51,6 +53,7 @@ const handleComplete = () => {
         v-model="otpValue"
         :placeholder="props.placeholder"
         :class="props.class"
+        :data-testid="props.testId"
         @complete="handleComplete"
     >
         <PinInputGroup class="gap-1">
