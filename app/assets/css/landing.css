@@ -1,0 +1,302 @@
+/**
+ * Optional landing palette for nuxt-lepsios consumers.
+ * Opt-in import — do not load from layer css[] (keeps Wishimi/default untouched).
+ *
+ * @example
+ * @import "tailwindcss";
+ * @import "#layers/lepsios/app/assets/css/landing.css";
+ */
+
+@theme inline {
+  --font-sans: "Onest", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-gp-ink: var(--gp-ink);
+  --color-gp-paper: var(--gp-paper);
+  --color-gp-mist: var(--gp-mist);
+  --color-gp-line: var(--gp-line);
+  --color-gp-signal: var(--gp-signal);
+  --color-gp-muted: var(--gp-muted);
+  --color-gp-accent: var(--gp-accent);
+  --color-gp-lime: var(--gp-lime);
+  --color-gp-void: var(--gp-void);
+  --color-gp-panel: var(--gp-panel);
+  --color-gp-warn: var(--gp-warn);
+  --color-gp-blue: var(--gp-blue);
+  --color-gp-violet: var(--gp-violet);
+  --color-gp-pink: var(--gp-pink);
+}
+
+:root {
+  --gp-ink: #f5f5fa;
+  --gp-paper: #08090c;
+  --gp-mist: #11131b;
+  --gp-line: #282b37;
+  --gp-signal: #85edac;
+  --gp-accent: #a8a5ff;
+  --gp-muted: #a4a7b9;
+  --gp-blue: #4267ff;
+  --gp-violet: #ad6aff;
+  --gp-pink: #f49dde;
+  --gp-lime: #d4ff5b;
+  --gp-void: #0a0a0a;
+  --gp-panel: #141414;
+  --gp-warn: #ff6b2c;
+
+  --background: var(--gp-paper);
+  --foreground: var(--gp-ink);
+  --card: var(--gp-mist);
+  --card-foreground: var(--gp-ink);
+  --popover: var(--gp-mist);
+  --popover-foreground: var(--gp-ink);
+  --primary: var(--gp-blue);
+  --primary-foreground: #fafafa;
+  --secondary: #f0f0ee;
+  --secondary-foreground: #09090b;
+  --muted: #f0f0ee;
+  --muted-foreground: #52525b;
+  --accent: #f0f0ee;
+  --accent-foreground: #09090b;
+  --border: #e4e4e0;
+  --input: #e4e4e0;
+  --ring: #2563eb;
+  --radius: 0.125rem;
+
+  --lepsios-background: #09090b;
+  --lepsios-surface: #18181b;
+  --lepsios-field: #27272a;
+
+  --brand: var(--gp-accent);
+  --brand-foreground: #ffffff;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #09090b;
+  --secondary: #18181b;
+  --secondary-foreground: #fafafa;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --accent: #18181b;
+  --accent-foreground: #fafafa;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #60a5fa;
+
+  --brand: var(--gp-accent);
+  --brand-foreground: #ffffff;
+}
+
+/* —— Base —— */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gp-accent);
+  outline-offset: 4px;
+}
+
+body {
+  font-family: "Onest", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.015em;
+  background: var(--gp-paper);
+  color: var(--gp-ink);
+}
+
+.landing-wide-container {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 6vw, 8rem);
+}
+
+.font-display {
+  font-family: "Archivo", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gp-accent) 30%, transparent);
+  color: var(--gp-ink);
+}
+
+/* —— Type scale —— */
+.type-giant {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(4.25rem, 15vw, 11.5rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.055em;
+}
+
+.type-display {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.type-section {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+/* —— Glow card —— */
+.glow-card {
+  --card-light: var(--gp-blue);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 350px;
+  border: 1px solid #ffffff20;
+  border-radius: 30px;
+  background:
+    radial-gradient(ellipse at 70% 110%, color-mix(in srgb, var(--card-light) 34%, transparent), transparent 62%),
+    linear-gradient(150deg, #1a1c24, #0c0d13 60%);
+  box-shadow: inset 0 1px 1px #ffffff25, 0 20px 45px #00000050;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.glow-card:hover {
+  border-color: color-mix(in srgb, var(--card-light) 60%, transparent);
+  box-shadow: inset 0 1px 1px #ffffff30, 0 20px 55px #00000060;
+}
+
+.glow-card[data-glow="violet"] { --card-light: var(--gp-violet); }
+.glow-card[data-glow="signal"] { --card-light: var(--gp-signal); }
+.glow-card[data-glow="pink"] { --card-light: var(--gp-pink); }
+.glow-card[data-glow="blue"] { --card-light: var(--gp-blue); }
+
+.glow-card-light {
+  position: relative;
+  height: 160px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.glow-card-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  border: 1px solid color-mix(in srgb, var(--card-light) 70%, white);
+  background:
+    radial-gradient(circle at 32% 20%, #ffffff2b, transparent 42%),
+    #0b0c16;
+  box-shadow:
+    inset -14px -7px 24px var(--card-light),
+    inset 3px 3px 12px #ffffff50,
+    16px 8px 50px color-mix(in srgb, var(--card-light) 50%, transparent);
+}
+
+.glow-card-orbit::after {
+  content: '';
+  position: absolute;
+  inset: 18% -18%;
+  border: 1px solid var(--card-light);
+  border-radius: 50%;
+  transform: rotate(-28deg);
+  box-shadow: 0 0 14px var(--card-light);
+}
+
+.glow-card-orbit.is-rounded {
+  border-radius: 35%;
+  transform: translate(-50%, -50%) rotate(15deg);
+}
+
+.glow-card-bars {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 22px;
+}
+
+.glow-card-bars i {
+  width: 7px;
+  height: var(--bar);
+  border-radius: 6px;
+  background: linear-gradient(to top, transparent, var(--card-light));
+  box-shadow: 0 0 15px color-mix(in srgb, var(--card-light) 35%, transparent);
+}
+
+/* —— FAQ shell —— */
+.faq-details {
+  margin-bottom: 12px;
+  padding-inline: clamp(16px, 2vw, 28px);
+  border: 1px solid var(--gp-line);
+  border-radius: 18px;
+  background: var(--gp-mist);
+}
+
+.faq-details[open] {
+  background: linear-gradient(130deg, #1c1d30, var(--gp-mist));
+  border-color: color-mix(in srgb, var(--gp-accent) 50%, transparent);
+}
+
+/* —— Motion —— */
+@keyframes landing-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: landing-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
