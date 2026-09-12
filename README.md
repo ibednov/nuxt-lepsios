@@ -58,3 +58,13 @@ NUXT_LEPSIOS=../nuxt-lepsios
 # remote
 NUXT_LEPSIOS=github:ibednov/nuxt-lepsios#master
 ```
+
+## Landing brutal (light, opt-in)
+
+Master-style light ink/paper palette:
+
+```css
+@import "#layers/lepsios/app/assets/css/landing-brutal.css";
+```
+
+Dark marketing palette remains in `landing.css`.
