@@ -68,3 +68,13 @@ Master-style light ink/paper palette:
 ```
 
 Dark marketing palette remains in `landing.css`.
+
+## Landing shared blocks
+
+| Component | Props |
+|---|---|
+| `SharedUiBrowserWindow` | `os: 'macos'\|'windows'`, `url`, `expanded`; slots `tabs`, `url`, default |
+| `SharedUiBrutalChip` | `icon`, `label` |
+| `SharedUiBrutalCard` | `color: 'white'\|'dark'`, `active`, `index`, `tag`, `title`, `subtitle`, `description`, `items` |
+| `SharedUiTagCloud` | `items[{id,label,description?}]`, `moreLabel` |
+| `SharedUiFaqDetails` | `items`, `color`, `numbered` |
