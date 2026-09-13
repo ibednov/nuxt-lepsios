@@ -105,3 +105,12 @@ Examples:
 - negative: `negative_buzzerError_alert.wav`, `negative_flatline_alert.wav`, …
 
 Wishimi chat message alert uses `positive/cardioPulse_alert.wav`.
+
+## Content helpers
+
+| API | Notes |
+|---|---|
+| `useMarkdown()` | markdown-it + shiki (github light/dark) |
+| `utils/date` | dayjs helpers (`formatDate`, `formatDateOnlyBasedOnLocale`, …) |
+| `SharedUiToc` + `SharedUiTocItem` | TOC drawer from `body.toc.links` |
+| `plugins/ssr-width` | `provideSSRWidth(1024)` for SSR breakpoints |
