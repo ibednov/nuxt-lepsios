@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-2 rounded-b-xl bg-lepsios-background p-4">
+    <div class="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 rounded-b-xl bg-lepsios-background p-4">
         <div
             v-if="$slots.left"
             class="flex min-w-0 items-center justify-self-start"
@@ -11,13 +11,13 @@
             class="min-w-0"
         />
 
-        <div class="flex h-full min-w-0 flex-col items-center justify-center text-center">
-            <div class="flex min-w-0 items-center justify-center gap-2 text-2xl font-semibold">
+        <div class="flex h-full w-full min-w-0 flex-col items-center justify-center overflow-hidden text-center">
+            <div class="flex w-full min-w-0 max-w-full items-center justify-center gap-2 overflow-hidden text-2xl font-semibold">
                 <slot />
             </div>
             <div
                 v-if="$slots.subtitle"
-                class="min-w-0 truncate text-sm font-normal text-muted-foreground"
+                class="w-full min-w-0 truncate text-sm font-normal text-muted-foreground"
             >
                 <slot name="subtitle" />
             </div>
