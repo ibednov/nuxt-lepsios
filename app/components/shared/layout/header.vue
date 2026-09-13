@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 rounded-b-xl bg-lepsios-background p-4">
+    <div class="sticky top-0 z-40 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 rounded-b-xl bg-lepsios-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-lepsios-background/80">
         <div
             v-if="$slots.left"
             class="flex min-w-0 items-center justify-self-start"
