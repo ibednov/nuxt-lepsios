@@ -78,3 +78,30 @@ Dark marketing palette remains in `landing.css`.
 | `SharedUiBrutalCard` | `color: 'white'\|'dark'`, `active`, `index`, `tag`, `title`, `subtitle`, `description`, `items` |
 | `SharedUiTagCloud` | `items[{id,label,description?}]`, `moreLabel` |
 | `SharedUiFaqDetails` | `items`, `color`, `numbered` |
+
+## Audio notifications
+
+Shared UI alert WAVs live in the layer (MIT, royalty-free). Do **not** copy them into product apps.
+
+| Path | Content |
+|---|---|
+| `app/assets/audio/audio-notifications/positive/` | success / milestone / start alerts |
+| `app/assets/audio/audio-notifications/negative/` | error / drop / timeout alerts |
+| `app/assets/audio/audio-notifications/LICENSE` | MIT |
+| `app/assets/audio/audio-notifications/README.MD` | per-file acoustic notes |
+
+**Import from a consuming Nuxt app** (layer name `lepsios`):
+
+```ts
+import alertUrl from '#layers/lepsios/app/assets/audio/audio-notifications/positive/cardioPulse_alert.wav'
+
+const audio = new Audio(alertUrl)
+await audio.play()
+```
+
+Examples:
+
+- positive: `boxingBell_alert.wav`, `cardioPulse_alert.wav`, `zenGong_alert.wav`, …
+- negative: `negative_buzzerError_alert.wav`, `negative_flatline_alert.wav`, …
+
+Wishimi chat message alert uses `positive/cardioPulse_alert.wav`.
