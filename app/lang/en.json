@@ -35,6 +35,9 @@
         "collapse": "Collapse",
         "title": "Expand"
       }
+    },
+    "toc": {
+      "title": "Table of Contents"
     }
   },
   "ui": {
