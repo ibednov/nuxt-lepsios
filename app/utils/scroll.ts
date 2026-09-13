@@ -1,7 +1,20 @@
+export const scrollToTop = () => {
+  if (import.meta.client) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+}
+
 export const lockPageScroll = () => {
-  document.body.style.overflow = 'hidden'
+  if (import.meta.client) {
+    document.body.style.overflow = 'hidden'
+  }
 }
 
 export const unlockPageScroll = () => {
-  document.body.style.overflow = 'auto'
+  if (import.meta.client) {
+    document.body.style.overflow = 'auto'
+  }
 }

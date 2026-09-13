@@ -1,5 +1,6 @@
 import type { BreakpointSizes } from '~/interfaces/composables/vueuse'
-import { computed } from 'vue'
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import { computed, ref } from 'vue'
 
 const breakpointSizes: BreakpointSizes = {
   'xs': '320',
@@ -10,7 +11,20 @@ const breakpointSizes: BreakpointSizes = {
   '2xl': '1536',
 }
 
-export const breakpoints = useBreakpoints(breakpointsTailwind)
+const createBreakpoints = () => {
+  if (import.meta.server) {
+    return {
+      smaller: () => ref(false),
+      between: () => ref(false),
+      greater: () => ref(false),
+      greaterOrEqual: () => ref(true),
+      active: () => ref('lg' as keyof BreakpointSizes),
+    }
+  }
+  return useBreakpoints(breakpointsTailwind)
+}
+
+export const breakpoints = createBreakpoints()
 
 export const isXsScreen = breakpoints.smaller('sm')
 export const isSmScreen = breakpoints.between('sm', 'md')
