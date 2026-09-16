@@ -12,6 +12,38 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@formkit/auto-animate/nuxt',
     '@nuxtjs/i18n',
+    // Nuxt сам сканит app/components. shadcn-nuxt уже регистрирует ui/* из index.ts.
+    // Дополнительный scan ui/index.ts + ui/*.vue → NUXT_B3011.
+    // ignore только корневой ui/ (не shared/ui). Без своей components: [].
+    function ignoreShadcnUiFromComponentScan(_options, nuxt) {
+      nuxt.hook('components:dirs', (dirs) => {
+        for (let i = dirs.length - 1; i >= 0; i--) {
+          const dir = dirs[i]
+          const raw = typeof dir === 'string' ? dir : dir?.path
+          const p = String(raw || '').replace(/\\/g, '/')
+
+          // пустой stub от shadcn-nuxt addComponentsDir(ui)
+          if (p.endsWith('/components/ui')) {
+            dirs.splice(i, 1)
+            continue
+          }
+
+          // default layer dir: .../app/components
+          if (!p.endsWith('/app/components')) {
+            continue
+          }
+
+          // Только корневой shadcn ui/ — НЕ shared/ui (иначе SharedUi* пропадают).
+          const uiIgnore = ['ui/**', 'ui']
+          if (typeof dir === 'string') {
+            dirs[i] = { path: dir, ignore: uiIgnore }
+          }
+          else {
+            dir.ignore = [...new Set([...(dir.ignore || []), ...uiIgnore])]
+          }
+        }
+      })
+    },
   ],
 
   css: [
