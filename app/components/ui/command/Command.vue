@@ -2,7 +2,7 @@
 import { reactiveOmit } from '@vueuse/core'
 import type { ListboxRootEmits, ListboxRootProps } from 'reka-ui'
 import { ListboxRoot, useFilter, useForwardPropsEmits } from 'reka-ui'
-import { type HTMLAttributes, reactive, ref, watch } from 'vue'
+import { type HTMLAttributes, reactive, ref } from 'vue'
 import { provideCommandContext } from '.'
 
 const props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttributes['class'] }>(), {
@@ -63,21 +63,17 @@ const filterItems = () => {
     filterState.filtered.count = itemCount
 }
 
-// const handleSelect = () => {
-//   filterState.search = ''
-// }
-
-watch(
-    () => filterState.search,
-    () => {
-        filterItems()
-    },
-)
+const setSearch = (value: string | number | null | undefined) => {
+    filterState.search = value == null ? '' : String(value)
+    filterItems()
+}
 
 provideCommandContext({
     allItems,
     allGroups,
     filterState,
+    filterItems,
+    setSearch,
 })
 </script>
 

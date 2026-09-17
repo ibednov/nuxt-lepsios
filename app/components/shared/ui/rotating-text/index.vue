@@ -35,9 +35,14 @@ function advancePhrase(event: AnimationEvent) {
   activeIndex.value = (activeIndex.value + 1) % total
 }
 
-watch(() => props.phrases, () => {
-  activeIndex.value = 0
+const phraseIndex = computed(() => {
+  const total = safePhrases.value.length
+  if (!total)
+    return 0
+  return activeIndex.value % total
 })
+
+const currentPhrase = computed(() => safePhrases.value[phraseIndex.value] ?? '')
 
 onMounted(() => {
   motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -71,14 +76,14 @@ onBeforeUnmount(() => {
         class="lepsios-rotating-reserve"
       >{{ phrase }}</span>
       <span
-        :key="activeIndex"
+        :key="phraseIndex"
         class="lepsios-rotating-phrase"
       >
-        <span class="lepsios-rotating-base">{{ safePhrases[activeIndex] }}</span>
+        <span class="lepsios-rotating-base">{{ currentPhrase }}</span>
         <span
           class="lepsios-rotating-fill"
           @animationend="advancePhrase"
-        >{{ safePhrases[activeIndex] }}</span>
+        >{{ currentPhrase }}</span>
       </span>
     </span>
   </span>

@@ -80,14 +80,24 @@ const layoutById = computed(() =>
   Object.fromEntries(positions.value.map(pos => [pos.id, pos])),
 )
 
-onMounted(() => nextTick(layout))
+const itemsSignature = computed(() =>
+  props.items.map(i => `${i.id}:${i.label}`).join('|'),
+)
+
+const setContainerRef = (el: Element | null) => {
+  containerRef.value = el instanceof HTMLElement ? el : null
+  if (containerRef.value) {
+    nextTick(layout)
+  }
+}
+
 useResizeObserver(containerRef, () => layout())
-watch(() => props.items.map(i => i.label).join('|'), () => nextTick(layout))
 </script>
 
 <template>
   <div
-    ref="containerRef"
+    :key="itemsSignature"
+    :ref="setContainerRef"
     class="relative w-full min-w-0 flex-1 transition-[height] duration-300"
     :style="{ height: `${containerHeight}px` }"
   >

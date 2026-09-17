@@ -13,7 +13,7 @@ const delegatedProps = reactiveOmit(props, 'class')
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 const id = useId()
-const { filterState, allItems, allGroups } = useCommand()
+const { filterState, allItems, allGroups, setSearch } = useCommand()
 const groupContext = useCommandGroup()
 
 const isRender = computed(() => {
@@ -75,7 +75,7 @@ relative flex cursor-pointer items-center gap-2 rounded-full px-2 py-3 text-sm
         `,
                    props.class)"
         @select="() => {
-            filterState.search = ''
+            setSearch('')
         }"
     >
         <slot />

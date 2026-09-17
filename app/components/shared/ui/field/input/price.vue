@@ -35,10 +35,6 @@ const currencyOptions = computed(() => currencySelectOptions(currencyValue.value
 
 const selectedCurrency = computed(() => visibleCurrencyOption(currencyValue.value, currencyOptions.value))
 
-watch(() => modelValue.value, () => {
-  priceError.value = null
-})
-
 const handleInput = (val: string | number) => {
   if (val === '' || val === null || val === undefined) {
     priceError.value = null

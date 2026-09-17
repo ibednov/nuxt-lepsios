@@ -18,7 +18,7 @@ const delegatedProps = reactiveOmit(props, 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 
-const { filterState } = useCommand()
+const { filterState, setSearch } = useCommand()
 </script>
 
 <template>
@@ -37,7 +37,8 @@ const { filterState } = useCommand()
         />
         <ListboxFilter
             v-bind="{ ...forwardedProps, ...$attrs }"
-            v-model="filterState.search"
+            :model-value="filterState.search"
+            @update:model-value="setSearch"
             data-slot="command-input"
             auto-focus
             :class="cn('placeholder:text-muted-foreground flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50', props.class)"

@@ -22,29 +22,33 @@ const { t } = useI18n()
 
 const isOpenModel = defineModel<boolean>('open', { default: false })
 
-watch(isOpenModel, (newVal, oldVal) => {
-  if (!newVal && oldVal) {
-    // Даем время на завершение анимации закрытия, затем очищаем
-    nextTick(() => {
-      setTimeout(() => {
-        // Принудительно сбрасываем все стили body
-        const body = document.body
-        body.style.pointerEvents = ''
-        body.style.overflow = ''
-        body.style.paddingRight = ''
+const cleanupDialogArtifacts = () => {
+  // Даём время на анимацию закрытия, затем чистим body/orphan portals
+  nextTick(() => {
+    setTimeout(() => {
+      const body = document.body
+      body.style.pointerEvents = ''
+      body.style.overflow = ''
+      body.style.paddingRight = ''
 
-        // Удаляем все оставшиеся элементы диалога из DOM
-        const portals = document.querySelectorAll('[data-portal]')
-        portals.forEach((portal) => {
-          const overlay = portal.querySelector('[data-slot="dialog-overlay"]')
-          if (overlay && !overlay.closest('[data-state="open"]')) {
-            portal.remove()
-          }
-        })
-      }, 300)
-    })
+      const portals = document.querySelectorAll('[data-portal]')
+      portals.forEach((portal) => {
+        const overlay = portal.querySelector('[data-slot="dialog-overlay"]')
+        if (overlay && !overlay.closest('[data-state="open"]')) {
+          portal.remove()
+        }
+      })
+    }, 300)
+  })
+}
+
+const onOpenUpdate = (open: boolean) => {
+  const wasOpen = isOpenModel.value
+  isOpenModel.value = open
+  if (!open && wasOpen) {
+    cleanupDialogArtifacts()
   }
-}, { immediate: true })
+}
 
 const handleConfirm = () => {
   emit('confirm')
@@ -59,7 +63,10 @@ const cancelButtonText = computed(() => props.cancelText || t('global.confirm.ca
 </script>
 
 <template>
-    <Dialog v-model:open="isOpenModel">
+    <Dialog
+        :open="isOpenModel"
+        @update:open="onOpenUpdate"
+    >
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>{{ title }}</DialogTitle>
