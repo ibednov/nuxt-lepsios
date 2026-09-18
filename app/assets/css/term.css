@@ -125,3 +125,46 @@ html.dark .term-body {
     transform-origin: right center;
   }
 }
+
+/* Term marketing surfaces (hire / lab / products) */
+.term-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.term-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--lepsios-term-accent) 60%, transparent);
+  box-shadow:
+    0 24px 60px -28px color-mix(in srgb, var(--lepsios-term-accent) 55%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--lepsios-term-accent) 20%, transparent);
+}
+
+/* Fill sweep for Button variant="term" */
+[data-slot='button'][data-variant='term'] {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+[data-slot='button'][data-variant='term']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--lepsios-term-accent);
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+[data-slot='button'][data-variant='term'] > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-slot='button'][data-variant='term']:hover {
+  color: var(--lepsios-term-window);
+}
+
+[data-slot='button'][data-variant='term']:hover::before {
+  transform: translateY(0);
+}
