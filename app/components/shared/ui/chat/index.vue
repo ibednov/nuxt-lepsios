@@ -4,6 +4,7 @@ withDefaults(defineProps<{
   subtitle?: string
   placeholder?: string
   emptyText?: string
+  showHeader?: boolean
   showSearch?: boolean
   showComposer?: boolean
   titleClickable?: boolean
@@ -11,6 +12,7 @@ withDefaults(defineProps<{
   subtitle: undefined,
   placeholder: undefined,
   emptyText: undefined,
+  showHeader: true,
   showSearch: true,
   showComposer: true,
   titleClickable: false,
@@ -25,7 +27,10 @@ const emit = defineEmits<{
 
 <template>
     <div class="flex h-full min-h-0 flex-col bg-background text-foreground">
-        <header class="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2">
+        <header
+            v-if="showHeader"
+            class="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2"
+        >
             <Button
                 variant="ghost"
                 size="icon"
