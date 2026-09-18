@@ -168,3 +168,94 @@ html.dark .term-body {
 [data-slot='button'][data-variant='term']:hover::before {
   transform: translateY(0);
 }
+
+/* Post full (term variant) — shared blog/lab layout */
+.term-shell {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+}
+
+.term-kicker {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lepsios-term-accent, var(--home-accent, #2f6a14));
+  text-shadow: 0 0 12px color-mix(in srgb, var(--lepsios-term-accent, var(--home-accent, #2f6a14)) 35%, transparent);
+}
+
+button.term-kicker,
+a.term-kicker {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: inherit;
+  text-transform: uppercase;
+  color: var(--lepsios-term-accent, var(--home-accent, #2f6a14));
+  text-shadow: 0 0 12px color-mix(in srgb, var(--lepsios-term-accent, var(--home-accent, #2f6a14)) 35%, transparent);
+  cursor: pointer;
+}
+
+.term-section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.term-rule {
+  height: 8px;
+  width: 9rem;
+  transform-origin: left;
+  background: var(--lepsios-term-accent, var(--home-accent, #2f6a14));
+  box-shadow: 0 0 24px var(--lepsios-term-accent, var(--home-accent, #2f6a14));
+}
+
+.term-cta {
+  appearance: none;
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--lepsios-term-accent, var(--home-accent, #2f6a14)) 55%, transparent);
+  background: transparent !important;
+  color: inherit;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--lepsios-term-accent, var(--home-accent, #2f6a14)) 12%, transparent);
+  transition: color 0.3s ease;
+}
+
+.term-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--lepsios-term-accent, var(--home-accent, #2f6a14));
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.term-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.term-cta:hover {
+  color: var(--lepsios-term-window, var(--home-window, #f4f2ea));
+}
+
+.term-cta:hover::before {
+  transform: translateY(0);
+}

@@ -38,6 +38,19 @@
     },
     "toc": {
       "title": "Содержание"
+    },
+    "content": {
+      "post": {
+        "head": {
+          "demo": "Демо",
+          "github": "GitHub",
+          "stack": "Стек технологий",
+          "date": "Дата",
+          "author": "Автор",
+          "category": "Категория",
+          "tags": "Теги"
+        }
+      }
     }
   },
   "ui": {

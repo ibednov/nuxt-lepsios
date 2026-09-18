@@ -38,6 +38,19 @@
     },
     "toc": {
       "title": "Table of Contents"
+    },
+    "content": {
+      "post": {
+        "head": {
+          "demo": "Demo",
+          "github": "GitHub",
+          "stack": "Stack",
+          "date": "Date",
+          "author": "Author",
+          "category": "Category",
+          "tags": "Tags"
+        }
+      }
     }
   },
   "ui": {
