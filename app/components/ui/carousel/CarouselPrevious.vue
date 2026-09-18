@@ -23,7 +23,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
     >
         <slot>
             <Icon name="lucide:arrow-left" class="h-4 w-4 text-current" />
-            <span class="sr-only">Previous Slide</span>
+            <span class="sr-only">{{ $t('shared.ui.previous_slide') }}</span>
         </slot>
     </Button>
 </template>
