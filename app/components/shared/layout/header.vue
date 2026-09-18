@@ -1,5 +1,5 @@
 <template>
-    <div class="sticky top-0 z-40 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 rounded-b-xl bg-lepsios-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-lepsios-background/80">
+    <div class="sticky top-0 z-40 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 rounded-b-xl bg-lepsios-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-lepsios-background/80">
         <div
             v-if="$slots.left"
             class="flex min-w-0 items-center justify-self-start"
@@ -9,10 +9,11 @@
         <div
             v-else
             class="min-w-0"
+            aria-hidden="true"
         />
 
-        <div class="flex h-full w-full min-w-0 flex-col items-center justify-center overflow-hidden text-center">
-            <div class="flex w-full min-w-0 max-w-full items-center justify-center gap-2 overflow-hidden text-2xl font-semibold">
+        <div class="flex h-full min-w-0 max-w-full flex-col items-center justify-center overflow-hidden text-center">
+            <div class="flex max-w-full min-w-0 items-center justify-center gap-2 overflow-hidden text-2xl font-semibold">
                 <slot />
             </div>
             <div
@@ -32,6 +33,7 @@
         <div
             v-else
             class="min-w-0"
+            aria-hidden="true"
         />
     </div>
 </template>
