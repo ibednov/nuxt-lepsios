@@ -57,7 +57,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
                     name="lucide:x"
                     class="size-4"
                 />
-                <span class="sr-only">Close</span>
+                <span class="sr-only">{{ $t('shared.ui.close') }}</span>
             </DialogClose>
         </DialogContent>
     </DialogPortal>
