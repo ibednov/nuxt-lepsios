@@ -26,7 +26,7 @@ const forwarded = useForwardProps(delegatedProps)
   >
     <slot>
       <Icon name="lucide:chevron-left" />
-      <span class="hidden sm:block">Previous</span>
+      <span class="hidden sm:block">{{ $t('shared.ui.pagination.previous') }}</span>
     </slot>
   </PaginationPrev>
 </template>
