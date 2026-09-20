@@ -1,0 +1,40 @@
+/* Warm, editorial UI system. Opt in from a consuming product. */
+:root {
+  --waify-cream: #F7F5F1;
+  --waify-cream-dark: #EFECE5;
+  --waify-card: #FBFAF8;
+  --waify-charcoal: #231E1A;
+  --waify-olive: #646E35;
+  --waify-olive-light: #858F56;
+  --waify-terracotta: #BF7258;
+  --waify-terracotta-light: #D1A393;
+  --waify-sage: #BFCBB2;
+  --waify-muted: #E3E4DB;
+  --waify-muted-fg: #7E7267;
+  --waify-border: #E6E2DA;
+  --waify-radius: 0.75rem;
+  --background: 40 30% 96%;
+  --foreground: 30 15% 12%;
+  --card: 40 25% 98%;
+  --card-foreground: 30 15% 12%;
+  --primary: 70 35% 32%;
+  --primary-foreground: 40 30% 96%;
+  --secondary: 15 45% 55%;
+  --secondary-foreground: 40 30% 96%;
+  --muted: 70 15% 88%;
+  --muted-foreground: 30 10% 45%;
+  --accent: 90 20% 75%;
+  --accent-foreground: 30 15% 12%;
+  --border: 40 20% 88%;
+  --input: 40 20% 88%;
+  --ring: 70 35% 32%;
+  --radius: 0.75rem;
+}
+
+html, body, #__nuxt { background-color: var(--waify-cream) !important; color: var(--waify-charcoal); }
+body, button, input, textarea, select { font-family: 'DM Sans', system-ui, sans-serif !important; letter-spacing: normal; }
+h1, h2, h3, .font-display, .waify-display { font-family: 'Newsreader', Georgia, serif !important; }
+.waify-card { background: var(--waify-card); border: 1px solid var(--waify-border); border-radius: var(--waify-radius); box-shadow: 0 2px 8px -2px rgb(35 30 26 / 0.08); }
+.waify-mascot { width: 96px; height: auto; object-fit: contain; pointer-events: none; user-select: none; }
+.waify-mascot--sm { width: 72px; }
+.waify-mascot--lg { width: 120px; }
