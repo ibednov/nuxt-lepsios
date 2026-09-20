@@ -22,13 +22,13 @@ const emit = defineEmits<{
 
 const isOpen = defineModel<boolean>('open', { default: false })
 
-const handleConfirm = (close: () => void) => {
-  close()
+const handleConfirm = () => {
+  isOpen.value = false
   emit('confirm')
 }
 
-const handleCancel = (close: () => void) => {
-  close()
+const handleCancel = () => {
+  isOpen.value = false
   emit('cancel')
 }
 </script>
@@ -47,14 +47,14 @@ const handleCancel = (close: () => void) => {
             <slot name="trigger" />
         </template>
 
-        <template #default="{ close }">
+        <template #default>
             <div class="flex flex-col gap-3">
                 <Button
                     :variant="confirmVariant"
                     size="big"
                     text-align="center"
                     class="w-full"
-                    @click="handleConfirm(close)"
+                    @click="handleConfirm"
                 >
                     {{ confirmText }}
                 </Button>
@@ -62,7 +62,7 @@ const handleCancel = (close: () => void) => {
                 <button
                     type="button"
                     class="py-2 text-center text-base"
-                    @click="handleCancel(close)"
+                    @click="handleCancel"
                 >
                     {{ cancelText }}
                 </button>
