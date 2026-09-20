@@ -7,7 +7,7 @@ const props = withDefaults(defineProps<ToasterProps>(), {
 
 const customToastOptions: ToasterProps['toastOptions'] = {
   classes: {
-    toast: '!bg-white/30  !border-white/30 dark:!bg-black/30 dark:!text-white backdrop-blur-sm',
+      toast: '!bg-[var(--popover)] !text-[var(--popover-foreground)] !border-[var(--border)] shadow-lg',
   },
 }
 </script>
