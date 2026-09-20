@@ -64,7 +64,7 @@ const drawerFullscreenClass = [
         :class="[dialogClass]"
     >
         <DialogContent
-            :class="[dialogContentClass]"
+            :class="['bg-background text-foreground', dialogContentClass]"
         >
             <DialogHeader
                 v-if="title || description"
@@ -100,7 +100,7 @@ const drawerFullscreenClass = [
             :class="[
                 drawerFullscreen
                     ? drawerFullscreenClass
-                    : 'px-4 flex flex-col gap-6',
+                    : 'bg-background text-foreground px-4 flex flex-col gap-6',
                 drawerContentClass,
             ]"
         >
