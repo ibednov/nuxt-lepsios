@@ -16,6 +16,7 @@ interface Props {
   drawerContentFooterClass?: string
   drawerHideFooter?: boolean
   drawerFullscreen?: boolean
+  surfaceClass?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -64,7 +65,7 @@ const drawerFullscreenClass = [
         :class="[dialogClass]"
     >
         <DialogContent
-            :class="['bg-white text-foreground', dialogContentClass]"
+            :class="[surfaceClass, dialogContentClass]"
         >
             <DialogHeader
                 v-if="title || description"
@@ -100,7 +101,8 @@ const drawerFullscreenClass = [
             :class="[
                 drawerFullscreen
                     ? drawerFullscreenClass
-                    : 'bg-white text-foreground px-4 flex flex-col gap-6',
+                    : 'text-foreground px-4 flex flex-col gap-6',
+                surfaceClass,
                 drawerContentClass,
             ]"
         >

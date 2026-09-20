@@ -8,6 +8,7 @@ interface Props {
   cancelText: string
   confirmVariant?: ButtonVariants['variant']
   drawerHideFooter?: boolean
+  surfaceClass?: string
 }
 
 withDefaults(defineProps<Props>(), {
@@ -39,6 +40,7 @@ const handleCancel = () => {
         :title="title"
         :description="description"
         :drawer-hide-footer="drawerHideFooter"
+        :surface-class="surfaceClass"
     >
         <template
             v-if="$slots.trigger"
