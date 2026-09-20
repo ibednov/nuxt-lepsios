@@ -9,7 +9,7 @@ This repository is the shared UI layer for multiple products. Every component ad
 - Product-specific visual treatments are variants of shared components, never a new product namespace or a `waify/` folder. For example, add a named `cosy` variant to the existing Button/Card/Header API when that treatment is reusable.
 - Keep variant definitions in the component's existing `variants.ts`/CVA module and expose typed props through the existing component API.
 - Do not duplicate Button, Card, Input, Header, Drawer, Calendar, mascot, or token implementations in a consuming app.
-- Product pages own domain wiring and copy; this layer owns reusable structure, interaction, tokens, and visual variants.
+- Product pages own domain wiring, copy, and product-specific assets (including mascot image maps); this layer owns reusable structure, interaction, tokens, and visual variants.
 - Use Tailwind classes and the existing layer styles. Do not add page-level CSS or one-off global plugins for a single consumer.
 - Never hardcode user-facing English/Russian (or other natural-language) copy in `.vue`/`.ts` component code. Text such as titles, labels, buttons, placeholders, errors and aria-labels belongs in the consuming app's i18n JSON. Code identifiers, types and API keys are not UI copy and remain normal source code.
 

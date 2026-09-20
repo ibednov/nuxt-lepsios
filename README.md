@@ -12,7 +12,7 @@ Button: `variant="term"` | `variant="term-chip"`
 Badge: `variant="term"`  
 Toggle: `variant="pill"` | `variant="term"`
 
-Warm product variants are shared primitives too: use `variant="cosy"` on Button, Card, Badge, Input and `SharedUiEmpty`; use `SharedUiMascot` / `SharedUiMascotEmpty` with a consumer-provided `basePath` when a product supplies mascot assets. The consuming product may opt into `app/assets/css/cosy.css`; do not recreate these tokens or primitives locally.
+Warm product variants are shared primitives too: use `variant="cosy"` on Button, Card, Badge, Input and `SharedUiEmpty`. The consuming product may opt into `app/assets/css/cosy.css`; product-specific assets and their mapping components stay in the consuming product.
 
 ## macOS window
 
