@@ -16,6 +16,8 @@ export const badgeVariants = cva(
           'border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80',
         outline: 'text-foreground',
         term: 'rounded-none border-[color:color-mix(in_srgb,var(--lepsios-term-accent)_35%,transparent)] bg-transparent font-medium tracking-[0.12em] uppercase text-[11px] text-[color:color-mix(in_srgb,var(--lepsios-term-accent)_85%,white)]',
+        cosy: 'rounded-full border-transparent bg-[#e2ecd6] text-[#4f5b27] shadow-none',
+        'cosy-alert': 'rounded-full border-transparent bg-[#ffd8ca] text-[#955039] shadow-none',
       },
     },
     defaultVariants: {

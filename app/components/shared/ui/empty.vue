@@ -3,7 +3,7 @@ withDefaults(defineProps<{
   titleText?: string
   descriptionText?: string
   buttonText?: string
-  variant?: 'default' | 'term' | 'alert'
+  variant?: 'default' | 'term' | 'alert' | 'cosy'
 }>(), {
   variant: 'term',
 })
@@ -42,7 +42,7 @@ const emit = defineEmits(['buttonClick'])
     <div class="flex max-w-xl flex-col gap-3">
       <h2
         class="text-2xl font-semibold tracking-[-0.04em]"
-        :class="variant === 'term' ? 'text-[color:color-mix(in_srgb,var(--lepsios-term-accent,var(--home-accent))_18%,var(--foreground))]' : ''"
+    :class="variant === 'term' ? 'text-[color:color-mix(in_srgb,var(--lepsios-term-accent,var(--home-accent))_18%,var(--foreground))]' : variant === 'cosy' ? 'waify-display text-[var(--waify-charcoal,#231E1A)]' : ''"
       >
         {{ titleText }}
       </h2>
@@ -52,7 +52,7 @@ const emit = defineEmits(['buttonClick'])
     </div>
     <Button
       v-if="buttonText"
-      :variant="variant === 'term' ? 'term' : 'default'"
+      :variant="variant === 'term' ? 'term' : variant === 'cosy' ? 'cosy' : 'default'"
       @click="emit('buttonClick')"
     >
       {{ buttonText }}
