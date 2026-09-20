@@ -12,5 +12,6 @@ This repository is the shared UI layer for multiple products. Every component ad
 - Product pages own domain wiring, copy, and product-specific assets (including mascot image maps); this layer owns reusable structure, interaction, tokens, and visual variants.
 - Use Tailwind classes and the existing layer styles. Do not add page-level CSS or one-off global plugins for a single consumer.
 - Never hardcode user-facing English/Russian (or other natural-language) copy in `.vue`/`.ts` component code. Text such as titles, labels, buttons, placeholders, errors and aria-labels belongs in the consuming app's i18n JSON. Code identifiers, types and API keys are not UI copy and remain normal source code.
+- Consuming applications own navigation policy. Use their centralized route helper (Waify uses `GoToPage`/`GoToBack`) from pages and components; do not introduce direct `navigateTo`, `router.push`, or `router.replace` calls into shared UI components.
 
 Before finishing a change, verify that a consuming app can use the new variant through the normal shared component import and that existing variants remain unchanged.
