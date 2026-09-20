@@ -26,7 +26,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   defaultCountry: 'by',
-  favoritesCountries: () => ['BY', 'RU', 'PL', 'US'],
+  favoritesCountries: () => ['BY', 'RU', 'AZ'],
+  onlyCountries: () => ['BY', 'RU', 'AZ'],
   hideFavorites: false,
   enableSearch: true,
   enableMask: true,
