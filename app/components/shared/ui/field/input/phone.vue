@@ -30,6 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
   hideFavorites: false,
   enableSearch: true,
   enableMask: true,
+  disableCountryNameSelect: true,
 })
 
 const modelValue = defineModel<string>({ default: '' })

@@ -96,6 +96,10 @@
       },
       "link": {
         "trimmed_to_url": "Лишний текст убран, оставлена только ссылка"
+      },
+      "phone": {
+        "select_placeholder": "Страна",
+        "input_placeholder": "Номер телефона"
       }
     },
     "calendar": {

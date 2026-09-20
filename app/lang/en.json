@@ -96,6 +96,10 @@
       },
       "link": {
         "trimmed_to_url": "Extra text was removed; only the link was kept"
+      },
+      "phone": {
+        "select_placeholder": "Country",
+        "input_placeholder": "Phone number"
       }
     },
     "calendar": {
