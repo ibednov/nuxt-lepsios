@@ -1,6 +1,10 @@
+<script setup lang="ts">
+withDefaults(defineProps<{ headerVariant?: 'default' | 'cosy' }>(), { headerVariant: 'default' })
+</script>
+
 <template>
     <div class="flex flex-col gap-4">
-        <shared-layout-header>
+        <shared-layout-header :variant="headerVariant">
             <template #left>
                 <slot name="header-left" />
             </template>
