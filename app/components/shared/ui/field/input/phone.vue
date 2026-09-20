@@ -16,6 +16,7 @@ interface Props {
   lang?: PhoneLang
   favoritesCountries?: string[]
   hideFavorites?: boolean
+  dedupeFavorites?: boolean
   enableSearch?: boolean
   enableMask?: boolean
   selectPlaceholder?: string
@@ -26,9 +27,10 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   defaultCountry: 'by',
-  favoritesCountries: () => ['BY', 'RU', 'AZ'],
+  favoritesCountries: () => ['BY'],
   onlyCountries: () => ['BY', 'RU', 'AZ'],
-  hideFavorites: false,
+  hideFavorites: true,
+  dedupeFavorites: true,
   enableSearch: true,
   enableMask: true,
   disableCountryNameSelect: true,
@@ -76,6 +78,7 @@ const inputClass = computed(() =>
             :lang="phoneLang"
             :favorites-countries="favoritesCountries"
             :hide-favorites="hideFavorites"
+            :dedupe-favorites="dedupeFavorites"
             :enable-search="enableSearch"
             :enable-mask="enableMask"
             :select-placeholder="selectPlaceholder ?? t('ui.input.phone.select_placeholder')"
