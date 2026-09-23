@@ -12,7 +12,6 @@ const props = defineProps<{
 const model = defineModel<string>({ required: true })
 const open = ref(false)
 const selected = computed(() => props.options.find(option => option.value === model.value))
-const isDesktop = isMoreSmScreen
 
 const choose = (value: string) => {
   model.value = value
@@ -22,7 +21,7 @@ const choose = (value: string) => {
 
 <template>
   <div class="w-full">
-    <div v-if="isDesktop">
+    <div v-if="isMoreSmScreen">
       <DropdownMenu v-model:open="open">
         <DropdownMenuTrigger as-child>
           <Button type="button" variant="outline" class="w-full justify-between">
