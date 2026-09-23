@@ -100,7 +100,7 @@ onMounted(() => {
             </Button>
         </PopoverTrigger>
         <PopoverContent
-            class="w-auto p-0 z-120"
+            class="z-120 w-[22rem] max-w-[calc(100vw-2rem)] p-0"
         >
             <shared-ui-calendar
                 v-model="dateValue"
