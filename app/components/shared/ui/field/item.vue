@@ -187,11 +187,13 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 v-if="data.iconSrc"
                 #icon
             >
-                <img
-                    :src="data.iconSrc"
-                    alt=""
-                    class="size-10 shrink-0 object-contain"
-                >
+                <span class="flex size-10 shrink-0 items-center justify-center">
+                    <img
+                        :src="data.iconSrc"
+                        alt=""
+                        class="max-h-full max-w-full object-contain"
+                    >
+                </span>
             </template>
         </shared-ui-field-toggle>
 
