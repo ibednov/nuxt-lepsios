@@ -43,7 +43,7 @@ export const calendarCellVariants = cva(
 )
 
 export const calendarCellTriggerVariants = cva(
-  'h-8 w-full p-0 font-normal aria-selected:opacity-100 cursor-default [&[data-today]:not([data-selected])]:bg-accent [&[data-today]:not([data-selected])]:text-accent-foreground data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:opacity-100 data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground data-[disabled]:text-muted-foreground data-[disabled]:opacity-50 data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through data-[outside-view]:text-muted-foreground',
+  'h-8 w-full rounded-[var(--waify-button-radius,0.75rem)] p-0 font-normal aria-selected:opacity-100 cursor-default [&[data-today]:not([data-selected])]:bg-accent [&[data-today]:not([data-selected])]:text-accent-foreground [&[data-today]:not([data-selected])]:font-bold [&[data-today]:not([data-selected])]:ring-2 [&[data-today]:not([data-selected])]:ring-primary data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:opacity-100 data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground data-[disabled]:text-muted-foreground data-[disabled]:opacity-50 data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through data-[outside-view]:text-muted-foreground',
 )
 
 export type CalendarVariants = VariantProps<typeof calendarVariants>
