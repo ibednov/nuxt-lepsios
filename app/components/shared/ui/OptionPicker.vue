@@ -2,11 +2,14 @@
 interface Option {
   value: string
   label: string
+  description?: string
+  image?: string
 }
 
 const props = defineProps<{
   options: Option[]
   placeholder?: string
+  desktopInline?: boolean
 }>()
 
 const model = defineModel<string>({ required: true })
@@ -21,7 +24,19 @@ const choose = (value: string) => {
 
 <template>
   <div class="w-full">
-    <div v-if="isMoreSmScreen">
+    <div v-if="isMoreSmScreen && desktopInline" class="grid grid-cols-5 gap-2">
+      <button
+        v-for="option in options"
+        :key="option.value"
+        type="button"
+        class="min-h-10 rounded-[var(--waify-button-radius,0.75rem)] border px-3 py-2 text-sm font-medium transition-colors"
+        :class="model === option.value ? 'border-primary bg-primary text-primary-foreground' : 'border-border bg-background hover:bg-muted'"
+        @click="choose(option.value)"
+      >
+        {{ option.label }}
+      </button>
+    </div>
+    <div v-else-if="isMoreSmScreen">
       <DropdownMenu v-model:open="open">
         <DropdownMenuTrigger as-child>
           <Button type="button" variant="outline" class="w-full justify-between">
@@ -33,10 +48,14 @@ const choose = (value: string) => {
           <DropdownMenuItem
             v-for="option in options"
             :key="option.value"
-            class="cursor-pointer"
+            class="cursor-pointer gap-3"
             @select="choose(option.value)"
           >
-            {{ option.label }}
+            <img v-if="option.image" :src="option.image" :alt="option.label" class="size-10 rounded-[var(--waify-button-radius,0.75rem)] object-cover">
+            <span class="min-w-0">
+              <span class="block truncate">{{ option.label }}</span>
+              <span v-if="option.description" class="block truncate text-xs text-muted-foreground">{{ option.description }}</span>
+            </span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -54,16 +73,20 @@ const choose = (value: string) => {
           <DrawerHeader>
             <DrawerTitle>{{ placeholder }}</DrawerTitle>
           </DrawerHeader>
-          <div class="grid grid-cols-2 gap-3 p-4 pb-10 min-[420px]:grid-cols-3">
+          <div class="flex flex-col gap-2 p-4 pb-10">
             <button
               v-for="option in options"
               :key="option.value"
               type="button"
-              class="min-h-12 rounded-xl border px-3 py-3 text-sm font-semibold transition-colors"
+              class="flex min-h-14 items-center gap-3 rounded-[var(--waify-button-radius,0.75rem)] border px-3 py-3 text-left text-sm font-semibold transition-colors"
               :class="model === option.value ? 'border-primary bg-primary text-primary-foreground' : 'border-border bg-background hover:bg-muted'"
               @click="choose(option.value)"
             >
-              {{ option.label }}
+              <img v-if="option.image" :src="option.image" :alt="option.label" class="size-12 shrink-0 rounded-[var(--waify-button-radius,0.75rem)] object-cover">
+              <span class="min-w-0">
+                <span class="block truncate">{{ option.label }}</span>
+                <span v-if="option.description" class="mt-0.5 block line-clamp-2 text-xs font-normal text-muted-foreground">{{ option.description }}</span>
+              </span>
             </button>
           </div>
         </DrawerContent>
