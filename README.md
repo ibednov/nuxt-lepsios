@@ -14,6 +14,18 @@ Toggle: `variant="pill"` | `variant="term"`
 
 Warm product variants are shared primitives too: use `variant="cosy"` on Button, Card, Badge, Input and `SharedUiEmpty`. The consuming product may opt into `app/assets/css/cosy.css`; product-specific assets and their mapping components stay in the consuming product.
 
+## Admin shell
+
+`SharedUiAdminShell` provides the common responsive admin layout: collapsible sidebar, inset content area, header slot and normalized content spacing. Product applications keep their own navigation, permissions and user menu in the `#sidebar` and `#header` slots.
+
+```vue
+<SharedUiAdminShell>
+  <template #sidebar><ProductAdminSidebar /></template>
+  <template #header><ProductAdminHeader /></template>
+  <slot />
+</SharedUiAdminShell>
+```
+
 ## macOS window
 
 `SharedUiMacosWindow` + `useTermWindow({ onClose })` + `term.css`.
