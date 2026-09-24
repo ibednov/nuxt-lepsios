@@ -26,6 +26,19 @@ Warm product variants are shared primitives too: use `variant="cosy"` on Button,
 </SharedUiAdminShell>
 ```
 
+## Admin UI kit
+
+The layer also provides product-agnostic admin page primitives:
+
+- `SharedUiAdminPage`
+- `SharedUiAdminPageHeader`
+- `SharedUiAdminMetricGrid` and `SharedUiMetricCard`
+- `SharedUiAdminDataTable`
+- `SharedUiAdminEmptyState`
+- `SharedUiAdminFormDrawer`
+
+Products keep their routes, navigation, API clients and permissions locally, while these primitives keep spacing, surfaces and page composition consistent.
+
 ## macOS window
 
 `SharedUiMacosWindow` + `useTermWindow({ onClose })` + `term.css`.
