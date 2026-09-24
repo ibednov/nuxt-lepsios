@@ -36,8 +36,8 @@ const props = withDefaults(defineProps<Props>(), {
   enableSearch: true,
   enableMask: true,
   disableCountryNameSelect: true,
-  selectClass: 'border-0 bg-lepsios-field',
-  selectTriggerClass: 'h-12 rounded-2xl border-0 bg-lepsios-field px-4 text-base',
+  selectClass: 'h-12 w-[180px] border-0 bg-lepsios-field',
+  selectTriggerClass: '!h-12 !min-h-12 rounded-2xl border-0 bg-lepsios-field px-4 text-base',
 })
 
 const modelValue = defineModel<string>({ default: '' })
@@ -59,7 +59,7 @@ const resolvedTestId = computed(() => props.testId ?? props.dataTestid)
 
 const inputClass = computed(() =>
   cn(
-    'flex h-12 w-full rounded-2xl px-4 text-base bg-lepsios-field',
+    '!h-12 min-h-12 flex w-full rounded-2xl px-4 text-base bg-lepsios-field',
     props.invalid
       ? 'border border-red-500 ring-1 ring-red-500/40'
       : 'border-0',
