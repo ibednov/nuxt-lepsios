@@ -11,7 +11,7 @@ import dayjs from 'dayjs'
 import { useCalendarLocale } from '~/composables/ui/calendar'
 import type { FieldDateRange } from '~/interfaces/common/field'
 import { cn } from '~/lib/utils'
-import { getCalendarRangeBounds } from '~/utils/calendar/range'
+import { getCalendarRangeBounds, getCalendarYearOptions } from '~/utils/calendar/range'
 
 const props = withDefaults(defineProps<{
   range?: FieldDateRange
@@ -29,11 +29,23 @@ const dateFormatter = computed(() => new DateFormatter(calendarLocale.value, {
 }))
 
 const dateValue = ref<DateValue>()
+const placeholder = ref<DateValue>(today(getLocalTimeZone()))
+
+const monthOptions = computed(() => {
+  const formatter = new DateFormatter(calendarLocale.value, { month: 'long' })
+  return Array.from({ length: 12 }, (_, index) => {
+    const month = index + 1
+    const date = placeholder.value.set({ month, day: 1 })
+    return { value: String(month), label: formatter.format(date.toDate(getLocalTimeZone())) }
+  })
+})
+const yearOptions = computed(() => getCalendarYearOptions(props.range))
 
 const data = defineModel<Date | string | null | undefined>('modelValue')
 
 const handleCalendarUpdate = (newValue: DateValue | undefined) => {
   if (newValue) {
+    placeholder.value = newValue
     const year = String(newValue.year).padStart(4, '0')
     const month = String(newValue.month).padStart(2, '0')
     const day = String(newValue.day).padStart(2, '0')
@@ -43,6 +55,14 @@ const handleCalendarUpdate = (newValue: DateValue | undefined) => {
     data.value = null
   }
   isOpen.value = false
+}
+
+const updateMonth = (value: string | number | boolean | Record<string, any>) => {
+  placeholder.value = placeholder.value.set({ month: Number(value) })
+}
+
+const updateYear = (value: string | number | boolean | Record<string, any>) => {
+  placeholder.value = placeholder.value.set({ year: Number(value) })
 }
 
 const rangeBounds = computed(() => getCalendarRangeBounds(props.range))
@@ -67,6 +87,7 @@ onMounted(() => {
     if (isoDateString) {
       try {
         dateValue.value = parseDate(isoDateString)
+        placeholder.value = dateValue.value
       }
       catch (e) {
         console.error('Failed to parse date:', isoDateString, e)
@@ -102,8 +123,37 @@ onMounted(() => {
         <PopoverContent
             class="z-120 w-[22rem] max-w-[calc(100vw-2rem)] p-0"
         >
+            <div class="grid grid-cols-2 gap-2 border-b p-3">
+                <Select
+                    :model-value="String(placeholder.month)"
+                    @update:model-value="updateMonth"
+                >
+                    <SelectTrigger>
+                        <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem v-for="option in monthOptions" :key="option.value" :value="option.value">
+                            {{ option.label }}
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
+                <Select
+                    :model-value="String(placeholder.year)"
+                    @update:model-value="updateYear"
+                >
+                    <SelectTrigger>
+                        <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem v-for="option in yearOptions" :key="option.value" :value="option.value">
+                            {{ option.label }}
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
+            </div>
             <shared-ui-calendar
                 v-model="dateValue"
+                v-model:placeholder="placeholder"
                 :min-value="calendarMinValue"
                 :max-value="calendarMaxValue"
                 initial-focus
