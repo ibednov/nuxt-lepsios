@@ -23,6 +23,8 @@ interface Props {
   inputPlaceholder?: string
   placeholder?: string
   disableCountryNameSelect?: boolean
+  selectClass?: string
+  selectTriggerClass?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -34,6 +36,8 @@ const props = withDefaults(defineProps<Props>(), {
   enableSearch: true,
   enableMask: true,
   disableCountryNameSelect: true,
+  selectClass: 'border-0 bg-lepsios-field',
+  selectTriggerClass: 'h-12 rounded-2xl border-0 bg-lepsios-field px-4 text-base',
 })
 
 const modelValue = defineModel<string>({ default: '' })
@@ -85,7 +89,8 @@ const inputClass = computed(() =>
             :input-placeholder="inputPlaceholder ?? placeholder ?? t('ui.input.phone.input_placeholder')"
             :disable-country-name-select="disableCountryNameSelect"
             :input-class="inputClass"
-            select-class="border-0 bg-lepsios-field"
+            :select-class="selectClass"
+            :select-trigger-class="selectTriggerClass"
             :data-testid="resolvedTestId"
         />
         <p
