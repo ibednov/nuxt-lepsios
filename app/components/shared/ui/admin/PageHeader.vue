@@ -12,7 +12,11 @@ const props = defineProps<{
 
 <template>
     <header :class="cn('flex flex-col gap-4 md:flex-row md:items-end md:justify-between', props.class)">
-        <div class="min-w-0 space-y-1">
+        <div class="flex min-w-0 items-start gap-3">
+            <div v-if="$slots.leading" class="shrink-0 pt-1">
+                <slot name="leading" />
+            </div>
+            <div class="min-w-0 space-y-1">
             <p
                 v-if="eyebrow || $slots.eyebrow"
                 class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground"
@@ -34,6 +38,7 @@ const props = defineProps<{
                     {{ description }}
                 </slot>
             </p>
+            </div>
         </div>
         <div
             v-if="$slots.actions"
