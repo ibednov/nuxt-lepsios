@@ -236,6 +236,8 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 :length="data.length || 6"
                 :placeholder="data.placeholder"
                 :class="data.class"
+                :input-class="data.inputClass"
+                :auto-focus="data.autoFocus"
                 :has-error="!!data.error"
                 @update:model-value="(val: string[] | null) => { emitUpdate(val); emit('update:error', null) }"
                 @complete="emit('complete')"

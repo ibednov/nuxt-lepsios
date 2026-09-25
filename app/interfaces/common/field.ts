@@ -25,6 +25,8 @@ export interface FieldInterface {
   maxLength?: number
   length?: number
   class?: string
+  inputClass?: string
+  autoFocus?: boolean
   fields?: FieldInterface[]
   fieldsContainerClass?: string
   addButtonText?: string

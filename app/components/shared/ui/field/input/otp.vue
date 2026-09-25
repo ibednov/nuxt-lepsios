@@ -5,6 +5,8 @@ interface Props {
   length?: number
   id?: string
   class?: string
+  inputClass?: string
+  autoFocus?: boolean
   placeholder?: string
   hasError?: boolean
 }
@@ -13,6 +15,8 @@ const props = withDefaults(defineProps<Props>(), {
   length: 6,
   id: 'otp-input',
   class: '',
+  inputClass: '',
+  autoFocus: false,
   placeholder: '○',
   hasError: false,
 })
@@ -59,8 +63,12 @@ const handleComplete = () => {
                 :key="index"
             >
                 <PinInputInput
-                    class="rounded-md border w-14 h-14 text-xl"
-                    :class="{ 'border-red-500': props.hasError }"
+                    :autofocus="props.autoFocus && index === 0"
+                    :class="[
+                        'rounded-md border w-14 h-14 text-xl',
+                        props.inputClass,
+                        props.hasError ? 'border-red-500' : '',
+                    ]"
                     :index="index"
                 />
             </template>
