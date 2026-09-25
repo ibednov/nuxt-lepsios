@@ -72,7 +72,7 @@ const isFilled = computed(() => props.variant === 'filled')
                     :autofocus="props.autoFocus && index === 0"
                     :class="[
                         'rounded-md border w-14 h-14 text-xl',
-                        isFilled ? 'h-16 w-auto min-w-0 flex-1 rounded-xl border-transparent bg-muted' : '',
+                        isFilled ? 'h-16 w-auto min-w-0 flex-1 rounded-none border-transparent bg-muted' : '',
                         props.inputClass,
                         props.hasError ? 'border-red-500' : '',
                     ]"
