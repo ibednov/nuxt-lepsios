@@ -11,7 +11,7 @@ export const statusFabVariants = cva(
         'success-circle': 'rounded-full bg-emerald-100 text-emerald-500',
       },
       position: {
-        'media-corner': 'right-2 bottom-2 translate-y-0 z-20',
+        'media-corner': 'right-2 bottom-0 translate-y-1/2 z-20',
         'top-right': 'right-2 top-2',
       },
     },
