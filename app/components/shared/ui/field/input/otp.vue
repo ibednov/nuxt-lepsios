@@ -7,6 +7,7 @@ interface Props {
   class?: string
   inputClass?: string
   autoFocus?: boolean
+  fullWidth?: boolean
   placeholder?: string
   hasError?: boolean
 }
@@ -17,6 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   class: '',
   inputClass: '',
   autoFocus: false,
+  fullWidth: false,
   placeholder: '○',
   hasError: false,
 })
@@ -54,10 +56,10 @@ const handleComplete = () => {
         :id="props.id"
         v-model="otpValue"
         :placeholder="props.placeholder"
-        :class="props.class"
+        :class="[props.class, props.fullWidth ? 'w-full' : '']"
         @complete="handleComplete"
     >
-        <PinInputGroup class="gap-1">
+        <PinInputGroup :class="['gap-1', props.fullWidth ? 'w-full' : '']">
             <template
                 v-for="(_, index) in props.length"
                 :key="index"

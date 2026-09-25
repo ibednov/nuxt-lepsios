@@ -27,6 +27,7 @@ export interface FieldInterface {
   class?: string
   inputClass?: string
   autoFocus?: boolean
+  fullWidth?: boolean
   fields?: FieldInterface[]
   fieldsContainerClass?: string
   addButtonText?: string
