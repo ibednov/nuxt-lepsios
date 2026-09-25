@@ -10,6 +10,7 @@ interface Props {
   fullWidth?: boolean
   placeholder?: string
   hasError?: boolean
+  variant?: 'default' | 'filled'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,6 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
   fullWidth: false,
   placeholder: '○',
   hasError: false,
+  variant: 'default',
 })
 
 const emit = defineEmits<{
@@ -49,6 +51,8 @@ const otpValue = computed({
 const handleComplete = () => {
   emit('complete')
 }
+
+const isFilled = computed(() => props.variant === 'filled')
 </script>
 
 <template>
@@ -56,10 +60,10 @@ const handleComplete = () => {
         :id="props.id"
         v-model="otpValue"
         :placeholder="props.placeholder"
-        :class="[props.class, props.fullWidth ? 'w-full' : '']"
+        :class="[props.class, props.fullWidth || isFilled ? 'w-full' : '']"
         @complete="handleComplete"
     >
-        <PinInputGroup :class="['gap-1', props.fullWidth ? 'w-full' : '']">
+        <PinInputGroup :class="['gap-1', props.fullWidth || isFilled ? 'w-full' : '']">
             <template
                 v-for="(_, index) in props.length"
                 :key="index"
@@ -68,6 +72,7 @@ const handleComplete = () => {
                     :autofocus="props.autoFocus && index === 0"
                     :class="[
                         'rounded-md border w-14 h-14 text-xl',
+                        isFilled ? 'h-16 w-auto min-w-0 flex-1 rounded-xl border-transparent bg-muted' : '',
                         props.inputClass,
                         props.hasError ? 'border-red-500' : '',
                     ]"

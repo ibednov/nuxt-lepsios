@@ -239,6 +239,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 :input-class="data.inputClass"
                 :auto-focus="data.autoFocus"
                 :full-width="data.fullWidth"
+                :variant="data.variant"
                 :has-error="!!data.error"
                 @update:model-value="(val: string[] | null) => { emitUpdate(val); emit('update:error', null) }"
                 @complete="emit('complete')"
