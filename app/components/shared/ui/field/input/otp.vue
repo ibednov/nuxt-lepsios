@@ -63,7 +63,7 @@ const isFilled = computed(() => props.variant === 'filled')
         :class="[props.class, props.fullWidth || isFilled ? 'w-full' : '']"
         @complete="handleComplete"
     >
-        <PinInputGroup :class="['gap-1', props.fullWidth || isFilled ? 'w-full' : '']">
+        <PinInputGroup :class="[isFilled ? 'gap-2' : 'gap-1', props.fullWidth || isFilled ? 'w-full' : '']">
             <template
                 v-for="(_, index) in props.length"
                 :key="index"
@@ -72,7 +72,7 @@ const isFilled = computed(() => props.variant === 'filled')
                     :autofocus="props.autoFocus && index === 0"
                     :class="[
                         'rounded-md border w-14 h-14 text-xl',
-                        isFilled ? 'h-16 w-auto min-w-0 flex-1 rounded-none border-transparent bg-muted' : '',
+                        isFilled ? 'h-16 w-auto min-w-0 flex-1 rounded-xl first:rounded-xl last:rounded-xl border-transparent bg-muted' : '',
                         props.inputClass,
                         props.hasError ? 'border-red-500' : '',
                     ]"
