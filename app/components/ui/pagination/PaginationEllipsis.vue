@@ -5,9 +5,9 @@ import { reactiveOmit } from "@vueuse/core"
 import { PaginationEllipsis } from "reka-ui"
 import { cn } from '~/lib/utils'
 
-const props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes["class"] }>()
+const props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes["class"], label?: string }>()
 
-const delegatedProps = reactiveOmit(props, "class")
+const delegatedProps = reactiveOmit(props, "class", "label")
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const delegatedProps = reactiveOmit(props, "class")
   >
     <slot>
       <Icon name="lucide:more-horizontal" class="size-4" />
-      <span class="sr-only">More pages</span>
+      <span v-if="props.label" class="sr-only">{{ props.label }}</span>
     </slot>
   </PaginationEllipsis>
 </template>

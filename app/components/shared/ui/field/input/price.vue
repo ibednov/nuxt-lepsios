@@ -7,6 +7,7 @@ interface Props {
   id?: string
   class?: string
   options?: FieldOption[]
+  invalidNumberText?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -48,7 +49,7 @@ const handleInput = (val: string | number) => {
     modelValue.value = numValue
   }
   else {
-    priceError.value = 'Введите число'
+    priceError.value = props.invalidNumberText ?? null
     modelValue.value = null
   }
 }

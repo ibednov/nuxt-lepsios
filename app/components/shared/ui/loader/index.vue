@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const props = defineProps<{ label?: string }>()
+</script>
+
 <template>
     <div role="status">
         <svg
@@ -16,6 +20,6 @@
                 fill="currentFill"
             />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span v-if="props.label" class="sr-only">{{ props.label }}</span>
     </div>
 </template>

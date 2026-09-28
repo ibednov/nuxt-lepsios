@@ -3,12 +3,13 @@ import type { HTMLAttributes } from 'vue'
 
 const props = defineProps<{
     class?: HTMLAttributes['class']
+    ariaLabel?: string
 }>()
 </script>
 
 <template>
     <nav
-        aria-label="breadcrumb"
+        :aria-label="props.ariaLabel"
         data-slot="breadcrumb"
         :class="props.class"
     >

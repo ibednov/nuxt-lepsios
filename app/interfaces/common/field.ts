@@ -33,6 +33,7 @@ export interface FieldInterface {
   fieldsContainerClass?: string
   addButtonText?: string
   removeButtonText?: string
+  invalidNumberText?: string
   accept?: string
   maxSize?: number
   appearance?: 'default' | 'drawer'

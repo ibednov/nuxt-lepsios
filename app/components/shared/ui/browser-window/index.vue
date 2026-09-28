@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<{
   aspectRatio?: BrowserWindowAspect
   /** scroll content inside the window body */
   scrollable?: boolean
+  controlLabels?: { close?: string, minimize?: string, maximize?: string }
   class?: HTMLAttributes['class']
 }>(), {
   os: 'macos',
@@ -66,9 +67,9 @@ const aspectClass = computed(() => {
       ]"
     >
       <div class="flex shrink-0 gap-1.5" :class="isMac ? '' : 'order-3'">
-        <button type="button" class="size-3 rounded-full bg-[#ff5f57] transition hover:ring-2 hover:ring-[#ff5f57]/40" aria-label="close" @click="emit('close')" />
-        <button type="button" class="size-3 rounded-full bg-[#febc2e] transition hover:ring-2 hover:ring-[#febc2e]/40" aria-label="minimize" @click="emit('minimize')" />
-        <button type="button" class="size-3 rounded-full bg-[#28c840] transition hover:ring-2 hover:ring-[#28c840]/50" aria-label="maximize" @click="emit('maximize')" />
+        <button type="button" class="size-3 rounded-full bg-[#ff5f57] transition hover:ring-2 hover:ring-[#ff5f57]/40" :aria-label="props.controlLabels?.close" @click="emit('close')" />
+        <button type="button" class="size-3 rounded-full bg-[#febc2e] transition hover:ring-2 hover:ring-[#febc2e]/40" :aria-label="props.controlLabels?.minimize" @click="emit('minimize')" />
+        <button type="button" class="size-3 rounded-full bg-[#28c840] transition hover:ring-2 hover:ring-[#28c840]/50" :aria-label="props.controlLabels?.maximize" @click="emit('maximize')" />
       </div>
       <div class="flex min-w-0 flex-1 items-end gap-1 self-stretch pt-2" :class="isMac ? '' : 'order-2 justify-end'">
         <slot name="tabs" />

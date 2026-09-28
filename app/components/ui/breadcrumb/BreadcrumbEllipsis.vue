@@ -19,6 +19,5 @@ const ellipsisClass = computed(() => cn('flex size-9 items-center justify-center
         <slot>
             <Icon name="lucide:more-horizontal" class="size-4" />
         </slot>
-        <span class="sr-only">More</span>
     </span>
 </template>

@@ -10,11 +10,12 @@ import { buttonVariants } from '~/components/ui/button'
 const props = withDefaults(defineProps<PaginationFirstProps & {
   size?: ButtonVariants["size"]
   class?: HTMLAttributes["class"]
+  label?: string
 }>(), {
   size: "default",
 })
 
-const delegatedProps = reactiveOmit(props, "class", "size")
+const delegatedProps = reactiveOmit(props, "class", "size", "label")
 const forwarded = useForwardProps(delegatedProps)
 </script>
 
@@ -26,7 +27,7 @@ const forwarded = useForwardProps(delegatedProps)
   >
     <slot>
       <Icon name="lucide:chevron-left" />
-      <span class="hidden sm:block">First</span>
+      <span v-if="props.label" class="hidden sm:block">{{ props.label }}</span>
     </slot>
   </PaginationFirst>
 </template>

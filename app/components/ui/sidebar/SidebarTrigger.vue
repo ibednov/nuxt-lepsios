@@ -6,6 +6,7 @@ import { useSidebar } from './utils'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
+  label?: string
 }>()
 
 const { toggleSidebar } = useSidebar()
@@ -23,6 +24,6 @@ const { toggleSidebar } = useSidebar()
             name="lucide:panel-left"
             class="size-4"
         />
-        <span class="sr-only">Toggle Sidebar</span>
+        <span v-if="props.label" class="sr-only">{{ props.label }}</span>
     </Button>
 </template>

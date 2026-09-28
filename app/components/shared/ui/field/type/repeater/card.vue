@@ -100,7 +100,7 @@ const data = defineModel<FieldDataInterface>()
                         name="lucide:plus"
                         size="16"
                     />
-                    {{ data?.addButtonText || 'Добавить' }}
+                    {{ data?.addButtonText }}
                 </Button>
             </div>
         </div>

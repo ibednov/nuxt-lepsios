@@ -85,7 +85,7 @@ const data = defineModel<FieldDataInterface>()
                             type="button"
                             @click="$emit('add-item')"
                         >
-                            {{ data?.addButtonText || 'Добавить' }}
+                            {{ data?.addButtonText }}
                         </Button>
 
                         <Button

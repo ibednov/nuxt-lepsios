@@ -195,7 +195,7 @@ const getDrawerVariantLabel = (itemIndex: number, field: FieldDataInterface) => 
   return getOptionLabel(field.options, item?.[field.key!], field.placeholder)
 }
 
-const getItemTitle = (label: string | undefined, index: number) => `${label || 'Элемент'} ${index + 1}`
+const getItemTitle = (label: string | undefined, index: number) => label || String(index + 1)
 </script>
 
 <template>

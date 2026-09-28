@@ -2,6 +2,7 @@
 interface Props {
   fullScreenBlur?: boolean
   absolute?: boolean
+  label?: string
 }
 
 defineProps<Props>()
@@ -13,10 +14,11 @@ defineProps<Props>()
         class="flex justify-center items-center h-full w-full bg-background/50 backdrop-blur-sm"
         :class="{ 'absolute top-0 left-0 right-0 bottom-0 z-10 w-full h-full scale-120': absolute }"
     >
-        <shared-ui-loader />
+        <shared-ui-loader :label="label" />
     </div>
 
     <shared-ui-loader
-        v-else
+      v-else
+      :label="label"
     />
 </template>

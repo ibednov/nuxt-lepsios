@@ -366,6 +366,7 @@ const isDrawerAppearance = computed(() => data.value?.appearance === 'drawer')
                 :model-value="data.value"
                 :options="data.options"
                 :placeholder="data.placeholder"
+                :invalid-number-text="data.invalidNumberText"
                 :class="data.class"
                 @update:model-value="emitUpdate"
             />
