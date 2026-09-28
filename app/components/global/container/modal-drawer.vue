@@ -3,6 +3,7 @@ interface Props {
   title?: string
   description?: string
   cancelButtonText?: string
+  closeLabel?: string
 
   dialogClass?: string
   dialogContentClass?: string
@@ -112,7 +113,7 @@ const drawerFullscreenClass = [
                         <button
                             type="button"
                             class="pointer-events-auto flex size-7 items-center justify-center rounded-full bg-lepsios-field text-foreground"
-                            aria-label="Close"
+                            :aria-label="props.closeLabel"
                         >
                             <Icon
                                 name="akar-icons:cross"
