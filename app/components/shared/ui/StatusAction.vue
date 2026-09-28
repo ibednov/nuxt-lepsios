@@ -28,32 +28,39 @@ const emit = defineEmits<{
   submit: [value: string]
 }>()
 
-const selected = computed(() => props.options.find(option => option.value === props.modelValue) ?? props.options[0])
+const primary = computed(() => props.options.find(option => option.value === 'family') ?? props.options[0])
+const rest = computed(() => props.options.filter(option => option.value !== primary.value?.value))
+
+const choose = (value: string) => {
+  emit('update:modelValue', value)
+  emit('submit', value)
+}
 </script>
 
 <template>
-  <ButtonGroup>
+  <ButtonGroup class="w-full">
     <Button
       type="button"
       variant="outline"
-      :disabled="disabled || !selected || selected.disabled"
-      @click="selected && emit('submit', selected.value)"
+      class="min-w-0 flex-1"
+      :disabled="disabled || !primary || primary.disabled"
+      @click="primary && choose(primary.value)"
     >
-      {{ selected?.actionLabel ?? selected?.label }}
+      {{ primary?.actionLabel ?? primary?.label }}
     </Button>
     <DropdownMenu>
       <DropdownMenuTrigger as-child>
-        <Button type="button" variant="outline" size="icon" :disabled="disabled" :aria-label="menuLabel">
+        <Button type="button" variant="outline" size="icon" :disabled="disabled || !rest.length" :aria-label="menuLabel">
           <Icon name="lucide:chevron-down" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
           <DropdownMenuItem
-            v-for="option in options"
+            v-for="option in rest"
             :key="option.value"
             :disabled="option.disabled"
-            @select="emit('update:modelValue', option.value)"
+            @select="choose(option.value)"
           >
             {{ option.label }}
           </DropdownMenuItem>
