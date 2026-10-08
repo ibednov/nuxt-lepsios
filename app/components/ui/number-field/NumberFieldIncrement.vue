@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): Extracted to @lepsios/vue/components/number-field. Remove after Nuxt consumers migrate; keep behavior unchanged until then. -->
 <script setup lang="ts">
 import type { NumberFieldIncrementProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
