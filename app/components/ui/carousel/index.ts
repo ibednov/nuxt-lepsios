@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/carousel/index; remove after Nuxt consumers migrate.
 export { default as Carousel } from '~/components/ui/carousel/Carousel.vue'
 export { default as CarouselContent } from '~/components/ui/carousel/CarouselContent.vue'
 export { default as CarouselItem } from '~/components/ui/carousel/CarouselItem.vue'

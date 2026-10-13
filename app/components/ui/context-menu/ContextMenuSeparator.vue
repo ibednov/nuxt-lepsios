@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/context-menu/ContextMenuSeparator; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { ContextMenuSeparator, type ContextMenuSeparatorProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

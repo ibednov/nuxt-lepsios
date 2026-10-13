@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/toggle-group/ToggleGroupItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { VariantProps } from 'class-variance-authority'
 import { ToggleGroupItem, type ToggleGroupItemProps, useForwardProps } from 'reka-ui'

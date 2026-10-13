@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/combobox/ComboboxEmpty; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { ComboboxEmptyProps } from 'reka-ui'
 import { ComboboxEmpty } from 'reka-ui'

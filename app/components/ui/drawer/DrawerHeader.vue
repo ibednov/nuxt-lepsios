@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/drawer/DrawerHeader; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { HtmlHTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'

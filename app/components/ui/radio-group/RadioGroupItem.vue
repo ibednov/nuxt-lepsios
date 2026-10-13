@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/radio-group/RadioGroupItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { RadioGroupItemProps } from 'reka-ui'
 import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui'

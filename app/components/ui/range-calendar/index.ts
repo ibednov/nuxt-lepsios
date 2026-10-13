@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/range-calendar/index; remove after Nuxt consumers migrate.
 export { default as RangeCalendar } from './RangeCalendar.vue'
 export { default as RangeCalendarCell } from './RangeCalendarCell.vue'
 export { default as RangeCalendarCellTrigger } from './RangeCalendarCellTrigger.vue'

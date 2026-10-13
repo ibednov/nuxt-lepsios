@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/carousel/useCarousel; remove after Nuxt consumers migrate.
 import { createInjectionState } from '@vueuse/core'
 import emblaCarouselVue from 'embla-carousel-vue'
 import { onMounted, ref } from 'vue'

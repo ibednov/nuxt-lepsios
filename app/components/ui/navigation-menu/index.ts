@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/navigation-menu/index; remove after Nuxt consumers migrate.
 import { cva } from 'class-variance-authority'
 
 export { default as NavigationMenu } from './NavigationMenu.vue'

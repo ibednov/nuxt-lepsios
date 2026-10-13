@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/navigation-menu/NavigationMenuList; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { NavigationMenuList, type NavigationMenuListProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

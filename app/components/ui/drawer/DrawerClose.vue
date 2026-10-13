@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/drawer/DrawerClose; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { DrawerCloseProps } from 'vaul-vue'
 import { DrawerClose } from 'vaul-vue'

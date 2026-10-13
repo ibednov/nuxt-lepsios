@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/drawer/DrawerTitle; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { DrawerTitleProps } from 'vaul-vue'
 import { DrawerTitle } from 'vaul-vue'

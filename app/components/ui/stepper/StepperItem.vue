@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/stepper/StepperItem; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { StepperItemProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

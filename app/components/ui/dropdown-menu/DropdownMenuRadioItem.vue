@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/dropdown-menu/DropdownMenuRadioItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import {
   DropdownMenuItemIndicator,

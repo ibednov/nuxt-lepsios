@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/carousel/Carousel; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface'
 import { useProvideCarousel } from './useCarousel'

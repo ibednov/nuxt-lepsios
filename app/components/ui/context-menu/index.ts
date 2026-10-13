@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/context-menu/index; remove after Nuxt consumers migrate.
 export { default as ContextMenu } from '~/components/ui/context-menu/ContextMenu.vue'
 export { default as ContextMenuCheckboxItem } from '~/components/ui/context-menu/ContextMenuCheckboxItem.vue'
 export { default as ContextMenuContent } from '~/components/ui/context-menu/ContextMenuContent.vue'

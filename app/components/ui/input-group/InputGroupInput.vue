@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/input-group/InputGroupInput; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { Input } from '~/components/ui/input'

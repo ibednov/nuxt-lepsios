@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/form/FormDescription; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'

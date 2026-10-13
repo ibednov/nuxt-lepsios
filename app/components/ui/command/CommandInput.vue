@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/command/CommandInput; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
 import { ListboxFilter, type ListboxFilterProps, useForwardProps } from 'reka-ui'

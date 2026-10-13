@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/toggle/Toggle; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from 'reka-ui'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/context-menu/ContextMenuLabel; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { ContextMenuLabel, type ContextMenuLabelProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/dropdown-menu/DropdownMenuItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { DropdownMenuItem, type DropdownMenuItemProps, useForwardProps } from 'reka-ui'

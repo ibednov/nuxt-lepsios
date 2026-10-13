@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/toggle-group/ToggleGroup; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { VariantProps } from 'class-variance-authority'
 import type { toggleVariants } from '~/components/ui/toggle'

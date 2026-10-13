@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/breadcrumb/BreadcrumbItem; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'

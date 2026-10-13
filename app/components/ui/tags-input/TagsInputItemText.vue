@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/tags-input/TagsInputItemText; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { TagsInputItemTextProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

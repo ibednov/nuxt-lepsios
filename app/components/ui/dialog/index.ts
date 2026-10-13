@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/dialog/index; remove after Nuxt consumers migrate.
 export { default as Dialog } from './Dialog.vue'
 export { default as DialogClose } from './DialogClose.vue'
 export { default as DialogContent } from './DialogContent.vue'

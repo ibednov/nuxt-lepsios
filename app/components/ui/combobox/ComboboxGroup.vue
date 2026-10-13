@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/combobox/ComboboxGroup; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { ComboboxGroupProps } from 'reka-ui'
 import { ComboboxGroup, ComboboxLabel } from 'reka-ui'

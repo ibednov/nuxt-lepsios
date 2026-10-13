@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/dropdown-menu/DropdownMenuGroup; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { DropdownMenuGroup, type DropdownMenuGroupProps } from 'reka-ui'
 

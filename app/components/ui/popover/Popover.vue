@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/popover/Popover; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { PopoverRootEmits, PopoverRootProps } from 'reka-ui'
 import { PopoverRoot, useForwardPropsEmits } from 'reka-ui'

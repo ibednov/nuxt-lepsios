@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/range-calendar/RangeCalendarHeading; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import { RangeCalendarHeading, type RangeCalendarHeadingProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

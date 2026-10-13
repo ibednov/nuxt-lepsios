@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/context-menu/ContextMenuSubTrigger; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { ContextMenuSubTrigger, type ContextMenuSubTriggerProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

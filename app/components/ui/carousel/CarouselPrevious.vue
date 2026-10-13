@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/carousel/CarouselPrevious; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { Button } from '~/components/ui/button'
 import type { WithClassAsProps } from './interface'

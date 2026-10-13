@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/avatar/AvatarImage; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { AvatarImageProps } from 'reka-ui'
 import { AvatarImage } from 'reka-ui'

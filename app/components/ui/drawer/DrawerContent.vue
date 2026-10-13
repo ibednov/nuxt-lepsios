@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/drawer/DrawerContent; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { DialogContentEmits, DialogContentProps } from 'reka-ui'
 import type { HtmlHTMLAttributes } from 'vue'

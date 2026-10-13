@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/combobox/ComboboxItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui'
 import { ComboboxItem, useForwardPropsEmits } from 'reka-ui'

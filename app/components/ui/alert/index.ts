@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/alert/index; remove after Nuxt consumers migrate.
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export { default as Alert } from './Alert.vue'

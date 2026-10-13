@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sidebar/Sidebar; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { SidebarProps } from '.'
 import { Sheet, SheetContent } from '~/components/ui/sheet'

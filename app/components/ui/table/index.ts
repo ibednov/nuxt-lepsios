@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/table/index; remove after Nuxt consumers migrate.
 export { default as Table } from '~/components/ui/table/Table.vue'
 export { default as TableBody } from '~/components/ui/table/TableBody.vue'
 export { default as TableCaption } from '~/components/ui/table/TableCaption.vue'

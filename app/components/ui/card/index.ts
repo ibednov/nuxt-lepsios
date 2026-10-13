@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/card/index; remove after Nuxt consumers migrate.
 export { default as Card } from './Card.vue'
 export { default as CardAction } from './CardAction.vue'
 export { default as CardContent } from './CardContent.vue'

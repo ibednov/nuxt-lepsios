@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/tabs/TabsList; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { VariantProps } from 'class-variance-authority'
 import type { TabsListProps } from 'reka-ui'

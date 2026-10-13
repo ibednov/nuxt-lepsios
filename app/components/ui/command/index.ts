@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/command/index; remove after Nuxt consumers migrate.
 import { createContext } from 'reka-ui'
 import type { Ref } from 'vue'
 

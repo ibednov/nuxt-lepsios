@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/command/Command; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
 import type { ListboxRootEmits, ListboxRootProps } from 'reka-ui'

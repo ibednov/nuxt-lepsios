@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/command/CommandList; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
 import { AnimatePresence, motion } from 'motion-v'

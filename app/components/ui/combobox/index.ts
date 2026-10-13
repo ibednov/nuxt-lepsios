@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/combobox/index; remove after Nuxt consumers migrate.
 export { ComboboxCancel, ComboboxItemIndicator, ComboboxTrigger } from 'reka-ui'
 export { default as Combobox } from '~/components/ui/combobox/Combobox.vue'
 export { default as ComboboxAnchor } from '~/components/ui/combobox/ComboboxAnchor.vue'

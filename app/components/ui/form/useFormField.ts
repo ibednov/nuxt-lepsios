@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/form/useFormField; remove after Nuxt consumers migrate.
 import { FieldContextKey, useFieldError, useIsFieldDirty, useIsFieldTouched, useIsFieldValid } from 'vee-validate'
 import { inject } from 'vue'
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys'

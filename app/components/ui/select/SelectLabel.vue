@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/select/SelectLabel; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { SelectLabelProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

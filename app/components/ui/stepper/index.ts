@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/stepper/index; remove after Nuxt consumers migrate.
 export { default as Stepper } from './Stepper.vue'
 export { default as StepperDescription } from './StepperDescription.vue'
 export { default as StepperIndicator } from './StepperIndicator.vue'

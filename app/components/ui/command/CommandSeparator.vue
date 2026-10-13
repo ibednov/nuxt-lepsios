@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/command/CommandSeparator; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
 import type { SeparatorProps } from 'reka-ui'

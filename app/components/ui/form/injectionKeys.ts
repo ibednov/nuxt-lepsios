@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/form/injectionKeys; remove after Nuxt consumers migrate.
 import type { InjectionKey } from 'vue'
 
 export const FORM_ITEM_INJECTION_KEY

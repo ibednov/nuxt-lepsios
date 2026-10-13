@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/pagination/PaginationNext; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { PaginationNextProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"

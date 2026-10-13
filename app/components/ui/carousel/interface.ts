@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/carousel/interface; remove after Nuxt consumers migrate.
 import type useEmblaCarousel from 'embla-carousel-vue'
 import type { EmblaCarouselVueType } from 'embla-carousel-vue'
 import type { HTMLAttributes, UnwrapRef } from 'vue'

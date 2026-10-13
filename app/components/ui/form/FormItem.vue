@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/form/FormItem; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import { useId } from 'reka-ui'
 import { type HTMLAttributes, provide } from 'vue'

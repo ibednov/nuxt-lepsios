@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/toggle/index; remove after Nuxt consumers migrate.
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export { default as Toggle } from './Toggle.vue'

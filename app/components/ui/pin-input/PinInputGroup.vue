@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/pin-input/PinInputGroup; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

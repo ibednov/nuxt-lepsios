@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/dialog/DialogDescription; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { DialogDescription, type DialogDescriptionProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

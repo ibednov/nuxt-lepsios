@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/progress/Progress; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { ProgressIndicator, ProgressRoot, type ProgressRootProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

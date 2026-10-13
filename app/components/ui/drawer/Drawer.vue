@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/drawer/Drawer; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue'
 import { useForwardPropsEmits } from 'reka-ui'

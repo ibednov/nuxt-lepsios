@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/table/TableEmpty; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { computed, type HTMLAttributes } from 'vue'
 import TableCell from './TableCell.vue'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sheet/SheetTitle; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { DialogTitleProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sheet/SheetClose; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { DialogCloseProps } from 'reka-ui'
 import { DialogClose } from 'reka-ui'

@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/dropdown-menu/index; remove after Nuxt consumers migrate.
 export { default as DropdownMenu } from './DropdownMenu.vue'
 
 export { default as DropdownMenuCheckboxItem } from './DropdownMenuCheckboxItem.vue'

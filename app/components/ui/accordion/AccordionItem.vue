@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/accordion/AccordionItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { AccordionItemProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'

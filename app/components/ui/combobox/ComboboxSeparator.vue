@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/combobox/ComboboxSeparator; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { ComboboxSeparatorProps } from 'reka-ui'
 import { ComboboxSeparator } from 'reka-ui'

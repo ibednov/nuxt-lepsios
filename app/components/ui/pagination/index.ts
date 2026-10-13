@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/pagination/index; remove after Nuxt consumers migrate.
 export { default as Pagination } from "./Pagination.vue"
 export { default as PaginationContent } from "./PaginationContent.vue"
 export { default as PaginationEllipsis } from "./PaginationEllipsis.vue"

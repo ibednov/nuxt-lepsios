@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/form/index; remove after Nuxt consumers migrate.
 export { default as FormControl } from './FormControl.vue'
 export { default as FormDescription } from './FormDescription.vue'
 export { default as FormItem } from './FormItem.vue'

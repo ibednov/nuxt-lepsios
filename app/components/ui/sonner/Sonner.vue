@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sonner/Sonner; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import { Toaster as Sonner, type ToasterProps } from 'vue-sonner'
 import 'vue-sonner/style.css'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/input-group/InputGroupButton; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { InputGroupButtonProps } from '.'
 import { Button } from '~/components/ui/button'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/pin-input/PinInputInput; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

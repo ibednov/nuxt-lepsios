@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/button-group/index; remove after Nuxt consumers migrate.
 import type { VariantProps } from 'class-variance-authority'
 import { cva } from 'class-variance-authority'
 

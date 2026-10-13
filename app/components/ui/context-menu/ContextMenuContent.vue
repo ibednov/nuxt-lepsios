@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/context-menu/ContextMenuContent; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { ContextMenuContent, type ContextMenuContentEmits, type ContextMenuContentProps, ContextMenuPortal, useForwardPropsEmits } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'

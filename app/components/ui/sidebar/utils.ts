@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sidebar/utils; remove after Nuxt consumers migrate.
 import type { ComputedRef, Ref } from 'vue'
 import { createContext } from 'reka-ui'
 

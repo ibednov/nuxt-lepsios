@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/combobox/ComboboxAnchor; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { ComboboxAnchorProps } from 'reka-ui'
 import { ComboboxAnchor, useForwardProps } from 'reka-ui'

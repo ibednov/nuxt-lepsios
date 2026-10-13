@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sheet/index; remove after Nuxt consumers migrate.
 export { default as Sheet } from './Sheet.vue'
 export { default as SheetClose } from './SheetClose.vue'
 export { default as SheetContent } from './SheetContent.vue'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/tabs/TabsTrigger; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { VariantProps } from 'class-variance-authority'
 import type { TabsTriggerProps } from 'reka-ui'

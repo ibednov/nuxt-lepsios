@@ -1,3 +1,4 @@
+// TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/breadcrumb/index; remove after Nuxt consumers migrate.
 export { default as Breadcrumb } from './Breadcrumb.vue'
 export { default as BreadcrumbEllipsis } from './BreadcrumbEllipsis.vue'
 export { default as BreadcrumbItem } from './BreadcrumbItem.vue'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/popover/PopoverAnchor; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { PopoverAnchorProps } from 'reka-ui'
 import { PopoverAnchor } from 'reka-ui'

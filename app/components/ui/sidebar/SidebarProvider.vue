@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/sidebar/SidebarProvider; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { HTMLAttributes, Ref } from 'vue'
 import { defaultDocument, useEventListener, useMediaQuery, useVModel } from '@vueuse/core'

@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/navigation-menu/NavigationMenuItem; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { NavigationMenuItem, type NavigationMenuItemProps } from 'reka-ui'

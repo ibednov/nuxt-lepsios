@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/context-menu/ContextMenuRadioGroup; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 import { ContextMenuRadioGroup, type ContextMenuRadioGroupEmits, type ContextMenuRadioGroupProps, useForwardPropsEmits } from 'reka-ui'
 

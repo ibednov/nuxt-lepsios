@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/drawer/DrawerDescription; remove after Nuxt consumers migrate. -->
 <script lang="ts" setup>
 import type { DrawerDescriptionProps } from 'vaul-vue'
 import { DrawerDescription } from 'vaul-vue'

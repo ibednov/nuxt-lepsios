@@ -1,3 +1,4 @@
+<!-- TODO(vue-lepsios): extracted to @lepsios/vue/components/ui/section-heading/SectionHeading; remove after Nuxt consumers migrate. -->
 <script setup lang="ts">
 interface Props {
   /** Маленький лейбл над заголовком (например "Возможности") */
