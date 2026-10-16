@@ -61,7 +61,7 @@ alias: { '~/lib': '#layers/lepsios/app/lib' }
 
 ```bash
 # local
-NUXT_LEPSIOS=../nuxt-lepsios
+NUXT_LEPSIOS=../../_shared/nuxt-lepsios
 
 # remote
 NUXT_LEPSIOS=github:ibednov/nuxt-lepsios#master

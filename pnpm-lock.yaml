@@ -42,8 +42,8 @@ importers:
         specifier: ^14.4.0
         version: 14.4.0(vue@3.5.41(typescript@6.0.3))
       alexbednov-phone-select:
-        specifier: link:../../_shared/phone-select
-        version: link:../../_shared/phone-select
+        specifier: link:../phone-select
+        version: link:../phone-select
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
