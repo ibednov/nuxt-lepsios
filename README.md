@@ -14,30 +14,11 @@ Toggle: `variant="pill"` | `variant="term"`
 
 Warm product variants are shared primitives too: use `variant="cosy"` on Button, Card, Badge, Input and `SharedUiEmpty`. The consuming product may opt into `app/assets/css/cosy.css`; product-specific assets and their mapping components stay in the consuming product.
 
-## Admin shell
-
-`SharedUiAdminShell` provides the common responsive admin layout: collapsible sidebar, inset content area, header slot and normalized content spacing. Product applications keep their own navigation, permissions and user menu in the `#sidebar` and `#header` slots.
-
-```vue
-<SharedUiAdminShell>
-  <template #sidebar><ProductAdminSidebar /></template>
-  <template #header><ProductAdminHeader /></template>
-  <slot />
-</SharedUiAdminShell>
-```
-
 ## Admin UI kit
 
-The layer also provides product-agnostic admin page primitives:
+Admin presentation primitives live in [`@lepsios/vue`](https://github.com/ibednov/vue-lepsios) as `AdminShell`, `AdminPage`, `AdminPageHeader`, `AdminMetricGrid`, `AdminDataTable` / `AdminDataGrid`, `AdminEmptyState`, `AdminFormDrawer`, `AdminRowActions`.
 
-- `SharedUiAdminPage`
-- `SharedUiAdminPageHeader`
-- `SharedUiAdminMetricGrid` and `SharedUiMetricCard`
-- `SharedUiAdminDataTable`
-- `SharedUiAdminEmptyState`
-- `SharedUiAdminFormDrawer`
-
-Products keep their routes, navigation, API clients and permissions locally, while these primitives keep spacing, surfaces and page composition consistent.
+Nuxt products depend on `@lepsios/vue` themselves (this layer must not import it). Keep Nuxt auto-import names with thin product wrappers if needed, e.g. `SharedUiAdminShell` → `AdminShell`.
 
 ## macOS window
 
