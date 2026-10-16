@@ -125,4 +125,10 @@ Wishimi chat message alert uses `positive/cardioPulse_alert.wav`.
 
 ## Package boundary (2026-10)
 
-`nuxt-lepsios` must **not** depend on `@lepsios/vue`. Nuxt apps depend on both packages themselves. The duplicated `app/components/ui` tree is legacy until `shared/ui` is moved/cleaned; product apps (Wishimi) already alias `~/components/ui` to `@lepsios/vue`.
+`nuxt-lepsios` must **not** depend on `@lepsios/vue`. Nuxt apps depend on both packages themselves and alias `~/components/ui` → `@lepsios/vue`.
+
+The duplicated `app/components/ui` tree stays until every consumer stops resolving UI from this layer (`#layers/lepsios/app/components/ui` or shadcn `componentDir` here).
+
+**Ready:** Wishimi front, Waify web, Wishimi CRM → `@lepsios/vue`.
+
+**Blocker before delete:** `alexbednov-work-nest-vue` still aliases UI to this layer and has no `@lepsios/vue` dep (extends `github:ibednov/nuxt-lepsios#master`). Follow-up: add `@lepsios/vue`, point `~/components/ui` at it (or drop the override and use the app-local `app/components/ui` tree), then remove `app/components/ui/**` and the layer `shadcn.componentDir` from this package.
