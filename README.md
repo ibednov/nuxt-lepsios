@@ -141,3 +141,7 @@ Wishimi chat message alert uses `positive/cardioPulse_alert.wav`.
 | `utils/date` | dayjs helpers (`formatDate`, `formatDateOnlyBasedOnLocale`, …) |
 | `SharedUiToc` + `SharedUiTocItem` | TOC drawer from `body.toc.links` |
 | `plugins/ssr-width` | `provideSSRWidth(1024)` for SSR breakpoints |
+
+## Package boundary (2026-10)
+
+`nuxt-lepsios` must **not** depend on `@lepsios/vue`. Nuxt apps depend on both packages themselves. The duplicated `app/components/ui` tree is legacy until `shared/ui` is moved/cleaned; product apps (Wishimi) already alias `~/components/ui` to `@lepsios/vue`.
