@@ -155,6 +155,7 @@ const drawerFullscreenClass = [
                         { 'mb-10': drawerHideFooter },
                         drawerContentSlotClass,
                     ]"
+                    class="min-w-0 w-full max-w-full"
                 >
                     <slot :close="close" />
                 </div>
