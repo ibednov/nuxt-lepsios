@@ -132,3 +132,7 @@ The duplicated `app/components/ui` tree stays until every consumer stops resolvi
 **Ready:** Wishimi front, Waify web, Wishimi CRM → `@lepsios/vue`.
 
 **Blocker before delete:** `alexbednov-work-nest-vue` still aliases UI to this layer and has no `@lepsios/vue` dep (extends `github:ibednov/nuxt-lepsios#master`). Follow-up: add `@lepsios/vue`, point `~/components/ui` at it (or drop the override and use the app-local `app/components/ui` tree), then remove `app/components/ui/**` and the layer `shadcn.componentDir` from this package.
+
+## License
+
+[PolyForm Noncommercial License 1.0.0](LICENSE). Free for noncommercial use; commercial use requires the author's written permission — contact via [alexbednov.dev](https://alexbednov.dev). See [CONTRIBUTING.md](CONTRIBUTING.md).

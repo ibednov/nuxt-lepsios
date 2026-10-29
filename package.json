@@ -2,6 +2,7 @@
   "name": "nuxt-lepsios",
   "type": "module",
   "version": "0.2.0",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "private": false,
   "description": "Reusable Nuxt UI layer — shadcn-vue primitives, composables and design tokens",
   "scripts": {
