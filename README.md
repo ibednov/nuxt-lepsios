@@ -1,6 +1,7 @@
 # nuxt-lepsios
 
-Shared Nuxt 4 UI layer (shadcn-vue + tokens).
+Shared Nuxt 4 integration layer for app shell, Nuxt composables, and Nuxt configuration.
+Reusable Vue UI primitives and assets live in [`@lepsios/vue`](https://github.com/ibednov/vue-lepsios).
 
 ## Variants
 
@@ -8,11 +9,7 @@ Shared Nuxt 4 UI layer (shadcn-vue + tokens).
 - `term` / `term-chip` (site / macOS window): IBM-mono chrome, `--lepsios-term-*`
 - **Landing palette** (opt-in): dark ink/paper marketing look, `--gp-*`
 
-Button: `variant="term"` | `variant="term-chip"`  
-Badge: `variant="term"`  
-Toggle: `variant="pill"` | `variant="term"`
-
-Warm product variants are shared primitives too: use `variant="cosy"` on Button, Card, Badge, Input and `SharedUiEmpty`. The consuming product may opt into `app/assets/css/cosy.css`; product-specific assets and their mapping components stay in the consuming product.
+Button, Badge, Toggle and other UI primitives are provided by `@lepsios/vue`. Import its optional `term.css` or `cosy.css` assets from the app when using those variants.
 
 ## Admin UI kit
 
@@ -22,17 +19,17 @@ Nuxt products depend on `@lepsios/vue` themselves (this layer must not import it
 
 ## macOS window
 
-`SharedUiMacosWindow` + `useTermWindow({ onClose })` + `term.css`.
+Use `MacosWindow` from `@lepsios/vue`, and import `@lepsios/vue/assets/css/term.css` in the consuming app.
 
 ## Landing palette (opt-in)
 
-Не подключается автоматически через `css: []` слоя — чтобы Wishimi и другие приложения не перекрашивались.
+Не подключается автоматически — чтобы Wishimi и другие приложения не перекрашивались.
 
 **Только цвета / утилиты:**
 
 ```css
 @import "tailwindcss";
-@import "#layers/lepsios/app/assets/css/landing.css";
+@import "@lepsios/vue/assets/css/landing.css";
 ```
 
 Даёт: `--gp-paper`, `--gp-ink`, `--gp-accent`, glow/type/reveal утилиты, `.landing-wide-container`.
@@ -47,9 +44,9 @@ Nuxt products depend on `@lepsios/vue` themselves (this layer must not import it
 | `SharedUiFaqDetails` | FAQ на native `details` (`items`) |
 
 ```vue
-<SharedUiRotatingText :phrases="['platforms', 'cabinets']" />
-<SharedUiGlowCard glow="violet" media="bars">…</SharedUiGlowCard>
-<SharedUiFaqDetails :items="[{ question: '…', answer: '…' }]" />
+<RotatingText :phrases="['platforms', 'cabinets']" />
+<GlowCard glow="violet" media="bars">…</GlowCard>
+<FaqDetails :items="[{ question: '…', answer: '…' }]" />
 ```
 
 ## Consume
@@ -72,7 +69,7 @@ NUXT_LEPSIOS=github:ibednov/nuxt-lepsios#master
 Master-style light ink/paper palette:
 
 ```css
-@import "#layers/lepsios/app/assets/css/landing-brutal.css";
+@import "@lepsios/vue/assets/css/landing-brutal.css";
 ```
 
 Dark marketing palette remains in `landing.css`.
@@ -125,6 +122,7 @@ Wishimi chat message alert uses `positive/cardioPulse_alert.wav`.
 
 ## Package boundary (2026-10)
 
+<<<<<<< Updated upstream
 `nuxt-lepsios` must **not** depend on `@lepsios/vue`. Nuxt apps depend on both packages themselves and alias `~/components/ui` → `@lepsios/vue`.
 
 The duplicated `app/components/ui` tree stays until every consumer stops resolving UI from this layer (`#layers/lepsios/app/components/ui` or shadcn `componentDir` here).
@@ -136,3 +134,6 @@ The duplicated `app/components/ui` tree stays until every consumer stops resolvi
 ## License
 
 [PolyForm Noncommercial License 1.0.0](LICENSE). Free for noncommercial use; commercial use requires the author's written permission — contact via [alexbednov.dev](https://alexbednov.dev). See [CONTRIBUTING.md](CONTRIBUTING.md).
+=======
+`nuxt-lepsios` does not depend on `@lepsios/vue`. Product apps provide UI primitives through their own `@lepsios/vue` dependency, or keep product-specific UI in their app. This layer does not ship a second copy of Vue UI components or design CSS.
+>>>>>>> Stashed changes

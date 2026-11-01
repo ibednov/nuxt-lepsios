@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "license": "PolyForm-Noncommercial-1.0.0",
   "private": false,
-  "description": "Reusable Nuxt UI layer — shadcn-vue primitives, composables and design tokens",
+  "description": "Reusable Nuxt UI layer \u2014 shadcn-vue primitives, composables and design tokens",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -31,7 +31,6 @@
     "nuxt": "^4.5.2",
     "qrcode.vue": "^3.10.0",
     "reka-ui": "^2.10.3",
-    "shadcn-nuxt": "^2.8.2",
     "shiki": "^4.0.1",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
@@ -55,7 +54,8 @@
   },
   "peerDependencies": {
     "nuxt": "^4.5.0",
-    "vue": "^3.5.0"
+    "vue": "^3.5.0",
+    "@lepsios/vue": ">=0.5.0"
   },
   "overrides": {
     "@nuxt/devtools": "^3.3.1",
