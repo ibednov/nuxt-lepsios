@@ -25,7 +25,10 @@
         "label": "Календарь"
       },
       "timepicker": {
-        "placeholder": "Выберите время"
+        "placeholder": "Выберите время",
+        "hour": "Час",
+        "minute": "Минуты",
+        "back": "Назад"
       },
       "columns_toggle": {
         "column_1": "1 колонка",

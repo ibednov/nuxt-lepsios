@@ -25,7 +25,10 @@
         "label": "Calendar"
       },
       "timepicker": {
-        "placeholder": "Select time"
+        "placeholder": "Select time",
+        "hour": "Hour",
+        "minute": "Minutes",
+        "back": "Back"
       },
       "columns_toggle": {
         "column_1": "1 column",
