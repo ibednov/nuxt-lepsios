@@ -21,7 +21,11 @@
   "shared": {
     "ui": {
       "datepicker": {
-        "placeholder": "Выберите дату"
+        "placeholder": "Выберите дату",
+        "label": "Календарь"
+      },
+      "timepicker": {
+        "placeholder": "Выберите время"
       },
       "columns_toggle": {
         "column_1": "1 колонка",

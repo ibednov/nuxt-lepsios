@@ -21,7 +21,11 @@
   "shared": {
     "ui": {
       "datepicker": {
-        "placeholder": "Select the date"
+        "placeholder": "Select the date",
+        "label": "Calendar"
+      },
+      "timepicker": {
+        "placeholder": "Select time"
       },
       "columns_toggle": {
         "column_1": "1 column",
