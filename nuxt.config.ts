@@ -43,6 +43,17 @@ export default defineNuxtConfig({
           'useBreakpoints',
         ],
       },
+      // unimport does not expand `export *` from packages; keep explicit names.
+      {
+        from: '@lepsios/vue',
+        imports: [
+          'handleErrorFromResponse',
+          'sortArray',
+          'processFieldsToFieldsData',
+          'extractValueFromField',
+          'extractDataFromFields',
+        ],
+      },
     ],
   },
 

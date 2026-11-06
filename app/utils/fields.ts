@@ -1,1 +1,5 @@
-export * from '@lepsios/vue/utils/fields'
+export {
+  processFieldsToFieldsData,
+  extractValueFromField,
+  extractDataFromFields,
+} from '@lepsios/vue'

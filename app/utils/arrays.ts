@@ -1,1 +1,1 @@
-export * from '@lepsios/vue/utils/arrays'
+export { sortArray } from '@lepsios/vue'

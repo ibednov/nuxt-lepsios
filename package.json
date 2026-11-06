@@ -57,6 +57,11 @@
     "vue": "^3.5.0",
     "@lepsios/vue": ">=0.5.0"
   },
+  "peerDependenciesMeta": {
+    "@lepsios/vue": {
+      "optional": true
+    }
+  },
   "overrides": {
     "@nuxt/devtools": "^3.3.1",
     "brace-expansion": "^2.1.4",

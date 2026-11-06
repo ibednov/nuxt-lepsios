@@ -1,1 +1,1 @@
-export * from '@lepsios/vue/utils/error'
+export { handleErrorFromResponse } from '@lepsios/vue'
