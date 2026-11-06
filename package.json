@@ -1,10 +1,10 @@
 {
   "name": "nuxt-lepsios",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "PolyForm-Noncommercial-1.0.0",
   "private": false,
-  "description": "Reusable Nuxt UI layer \u2014 shadcn-vue primitives, composables and design tokens",
+  "description": "Reusable Nuxt UI layer — shadcn-vue primitives, composables and design tokens",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -22,7 +22,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@vee-validate/zod": "^4.15.1",
     "@vueuse/core": "^14.4.0",
-    "alexbednov-phone-select": "^0.4.4",
+    "alexbednov-phone-select": "^0.4.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.21",
