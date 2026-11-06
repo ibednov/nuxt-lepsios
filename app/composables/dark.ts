@@ -9,20 +9,8 @@ export const useDark = () => {
     return 'system'
   })
 
-  const isDark = computed(() => {
-    // Track color-mode so this recomputes after preference changes.
-    const preference = colorMode?.preference
-    const resolved = colorMode?.value
-
-    if (import.meta.client && typeof document !== 'undefined') {
-      return document.documentElement.classList.contains('dark')
-    }
-
-    if (preference === 'system') {
-      return resolved === 'dark'
-    }
-    return preference === 'dark'
-  })
+  // Resolved mode only — never document.classList (SSR HTML ≠ client → hydration spam).
+  const isDark = computed(() => colorMode?.value === 'dark')
 
   const toggleDark = (theme: 'light' | 'dark' | 'system') => {
     // Callers must pass a theme string — never bind @click="toggleDark"
