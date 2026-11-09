@@ -3,7 +3,10 @@ withDefaults(defineProps<{ headerVariant?: 'default' | 'cosy' }>(), { headerVari
 </script>
 
 <template>
-    <div class="flex flex-col gap-4">
+    <div
+        class="flex flex-col gap-4"
+        v-bind="$attrs"
+    >
         <shared-layout-header :variant="headerVariant">
             <template #left>
                 <slot name="header-left" />
